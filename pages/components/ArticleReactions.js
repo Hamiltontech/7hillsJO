@@ -81,86 +81,86 @@ const ArticleReactions = ({ data, postID }) => {
 
 
 
-  const [total, setTotal] = useState(0);
-  let articleID = data?.id;
+  // const [total, setTotal] = useState(0);
+  // let articleID = data?.id;
 
-  const loveClick = () => {
-    axios
-      .put(
-        `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
-        {
-          data: {
-            love: data?.attributes?.love + 1,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-      });
+  // const loveClick = () => {
+  //   axios
+  //     .put(
+  //       `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
+  //       {
+  //         data: {
+  //           love: data?.attributes?.love + 1,
+  //         },
+  //       }
+  //     )
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
     
-    window.location.reload();
-  };
+  //   window.location.reload();
+  // };
 
-  const unicornClick = () => {
-    axios.put(
-      `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
-      {
-        data: {
-          unicorn: data?.attributes?.unicorn + 1,
-        },
-      }
-    );
-    window.location.reload();
-  };
+  // const unicornClick = () => {
+  //   axios.put(
+  //     `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
+  //     {
+  //       data: {
+  //         unicorn: data?.attributes?.unicorn + 1,
+  //       },
+  //     }
+  //   );
+  //   window.location.reload();
+  // };
 
-  const clapClick = () => {
-    axios.put(
-      `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
-      {
-        data: {
-          clap: data?.attributes?.clap + 1,
-        },
-      }
-    );
+  // const clapClick = () => {
+  //   axios.put(
+  //     `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
+  //     {
+  //       data: {
+  //         clap: data?.attributes?.clap + 1,
+  //       },
+  //     }
+  //   );
 
-  };
-  const laughClick = () => {
-    axios.put(
-      `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
-      {
-        data: {
-          laugh: data?.attributes?.laugh + 1,
-        },
-      }
-    );
-    window.location.reload();
-  };
-  const cheerClick = () => {
-    axios.put(
-      `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
-      {
-        data: {
-          cheer: data?.attributes?.cheer + 1,
-        },
-      }
-    );
-    window.location.reload();
-  };
+  // };
+  // const laughClick = () => {
+  //   axios.put(
+  //     `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
+  //     {
+  //       data: {
+  //         laugh: data?.attributes?.laugh + 1,
+  //       },
+  //     }
+  //   );
+  //   window.location.reload();
+  // };
+  // const cheerClick = () => {
+  //   axios.put(
+  //     `https://arcane-reaches-19838.herokuapp.com/api/articles/${data?.id}`,
+  //     {
+  //       data: {
+  //         cheer: data?.attributes?.cheer + 1,
+  //       },
+  //     }
+  //   );
+  //   window.location.reload();
+  // };
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://arcane-reaches-19838.herokuapp.com/api/articles/${
-          articleID || "2"
-        }`
-      )
-      .then((response) => {
-        console.log(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://arcane-reaches-19838.herokuapp.com/api/articles/${
+  //         articleID || "2"
+  //       }`
+  //     )
+  //     .then((response) => {
+  //       console.log(response.data.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
 
 
@@ -188,7 +188,7 @@ const ArticleReactions = ({ data, postID }) => {
 
         {/* laugh */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
-          <button onClick={clapClick()}>
+          <button >
             <img
               src={
                 "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/love-512x512.png"
@@ -204,7 +204,7 @@ const ArticleReactions = ({ data, postID }) => {
         {/* love */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
           <button
-            onClick={loveClick()}
+            
           >
             <img
               src={"https://cdn-icons-png.flaticon.com/512/1933/1933576.png"}
