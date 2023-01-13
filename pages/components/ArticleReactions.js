@@ -4,36 +4,37 @@ import sky from "../../public/Images/placeholder.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const ArticleReactions = ({ data, postID }) => {
-// const [reactions, setReactions] = useState([])
-// const [type, setType] = useState("")
+  // const [reactions, setReactions] = useState([])
+  // const [type, setType] = useState("")
 
 
 
 
-//   const CreateReaction = () => {
-//     axios.post("http://localhost:1337/api/reacts", {
-//       data: {
-//         Type: "like",
-//         PostID: postID,
-//       },
-//     }).then((response)=>{
-//       console.log(response)
-//     }).catch((error)=>{
-//       console.log(error)
-//     })
-//   };
+    // const CreateReaction = () => {
+    //   axios.put("https://arcane-reaches-19838.herokuapp.com/api/reactions/1", {
+    //     data: {
+    //       PostID: postID,
+    //       Number: 6,
+    //     },
+    //   }).then((response)=>{
+    //     console.log(response)
+    //   }).catch((error)=>{
+    //     console.log(error)
+    //   })
+    // };
 
 
 
-// useEffect(()=>{
-//   axios.get("http://localhost:1337/api/reacts").then((response)=>{
-//     setReactions(response.data.data)
-//   })
-// }, [])
+  // useEffect(()=>{
+  //   axios.get("http://localhost:1337/api/reacts").then((response)=>{
+  //     setReactions(response.data.data)
+  //   })
+  // }, [])
 
 
-// let likes = reactions.filter((item)=> item.attributes.Type === "like")
+  // let likes = reactions.filter((item)=> item.attributes.Type === "like")
 
 
 
@@ -97,7 +98,7 @@ const ArticleReactions = ({ data, postID }) => {
   //     .then((response) => {
   //       console.log(response);
   //     });
-    
+
   //   window.location.reload();
   // };
 
@@ -162,8 +163,16 @@ const ArticleReactions = ({ data, postID }) => {
   //     });
   // }, []);
 
+const [likeNo, setLikeNo ] = useState(0)
+const [like, setLike] = useState(0)
 
 
+useEffect(()=>{
+axios.get("https://arcane-reaches-19838.herokuapp.com/api/reactions/1").then((response)=>{
+  setLike(response.data.data.attributes.Number)
+  console.log(response.data.data.attributes.Number)
+})
+}, [likeNo])
 
   return (
     <div className="grid place-items-center text-light/80 mt-10">
@@ -171,6 +180,47 @@ const ArticleReactions = ({ data, postID }) => {
 
       <h1 className="font-extralight">No. Responses</h1>
       <div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4">
+<button onClick={()=>{
+
+    axios.put("https://arcane-reaches-19838.herokuapp.com/api/reactions/1", {
+      data: {
+        PostID: postID,
+        Number: like + 1 ,
+      },
+    }).then((res)=>{
+      console.log(res.data.data)
+      setLikeNo(res.data.data.attributes.Number)
+    })
+}}>click me</button>
+
+<h1>{like}</h1>
+
+{/* 
+        <Provider
+	apiKey="acc0dbccce8e557db5ebbe6d605aaa"
+	theme={{
+		colors: {
+			background: "#b8fff3",
+			text: "violet",
+			primary: "rgba(255, 224, 138, 0.4)"
+		}
+	}}
+>
+	<LikeButton
+		namespace="my-blog-post"
+		id="how-to-beat-me-at-chess"
+	/>
+</Provider>
+
+
+        <Provider apiKey="acc0dbccce8e557db5ebbe6d605aaa">
+          <ClapButton
+            namespace="testing-react"
+            id="everybody-clap-now"
+          />
+        </Provider> */}
+
+
         {/* like */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
           <button >
@@ -204,7 +254,7 @@ const ArticleReactions = ({ data, postID }) => {
         {/* love */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
           <button
-            
+
           >
             <img
               src={"https://cdn-icons-png.flaticon.com/512/1933/1933576.png"}

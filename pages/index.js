@@ -15,6 +15,9 @@ import axios from "axios";
 import parse from "html-react-parser";
 
 
+
+
+
 export default function Home() {
   const [data, setData] = useState([]);
   const [spotify, setSpotify] = useState([])
@@ -28,6 +31,7 @@ export default function Home() {
   }, [])
 
 
+  console.log(data)
   useEffect(()=>{
     axios.get("https://arcane-reaches-19838.herokuapp.com/api/spotifies/1").then((response)=>{
       setSpotify(response.data.data)
@@ -42,16 +46,11 @@ export default function Home() {
   return (
     <div>
       <title>7Hills</title>
-
-{/* <div className="w-full bg-blackk h-20 text-white font-extrabold flex text-center justify-center pt-5">
-        Powered by  <span className="mr-3 mt-1 ml-1">
-          <img src="https://www.hst.jo/web/image/website/1/logo/Hamilton%20Smart%20Engineering?unique=33375f1" width={100} height={100}/>
-        </span>
-        <span className="uppercase "> / Website is under review / </span>
-      </div> */}
       <Header />
-      
+  
       <MainHero data={data}/>
+
+
 
       {/* Home page main section */}
       <div className="h-screen max-w-full pt-2 text-white bg-red font-blinker">
