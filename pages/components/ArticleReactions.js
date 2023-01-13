@@ -169,10 +169,14 @@ const [like, setLike] = useState(0)
 
 useEffect(()=>{
 axios.get("https://arcane-reaches-19838.herokuapp.com/api/reactions/1").then((response)=>{
-  setLike(response.data.data.attributes.Number)
-  console.log(response.data.data.attributes.Number)
+  if(postID === response.data.data.attributes.PostID){
+    setLike(response.data.data.attributes.Number)
+  }
 })
 }, [likeNo])
+
+
+console.log(like)
 
   return (
     <div className="grid place-items-center text-light/80 mt-10">
@@ -185,15 +189,17 @@ axios.get("https://arcane-reaches-19838.herokuapp.com/api/reactions/1").then((re
     axios.put("https://arcane-reaches-19838.herokuapp.com/api/reactions/1", {
       data: {
         PostID: postID,
-        Number: like + 1 ,
+        Number: like + 1,
       },
     }).then((res)=>{
-      console.log(res.data.data)
       setLikeNo(res.data.data.attributes.Number)
     })
 }}>click me</button>
 
+
+
 <h1>{like}</h1>
+
 
 {/* 
         <Provider
