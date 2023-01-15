@@ -7,9 +7,10 @@ import axios from "axios";
 const ArticleReactions = ({ data, postID, setReactions, reactions, error, setError, type, setType }) => {
 const [numberOfReactions, setNumberOfReactions] = useState([])
 
-
+console.log(reactions)
 
 useEffect(()=>{
+
 reactions?.map((item)=>{
   if(item?.id === postID){
     setNumberOfReactions(item?.attributes?.reactions?.data)
@@ -22,8 +23,8 @@ const handleSubmit =  () => {
       // make the post request to the strapi api to create the reaction
       axios.post('https://strapi-104357-0.cloudclusters.net/api/reactions', {
         "data": {
-          "Reaction": "happy", 
-          "article": 2,
+          "Reaction": type || "",  
+          "article": postID || "",
         }
       }).then((response)=>{
         setReactions(response.data.data)  
@@ -37,11 +38,13 @@ if (error) {
   return <p>An error occured: {error.message}</p>
 }
 
-if (!reactions) {
+if (!numberOfReactions) {
   return <p>Loading...</p> 
   
 } 
  
+
+console.log(numberOfReactions)
 
   return (
     <div className="grid place-items-center text-light/80 mt-10">
@@ -70,7 +73,7 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'like').length} </h1>
+          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'like').length}</h1>
         </div>
 
         {/* love */}
@@ -93,7 +96,7 @@ if (!reactions) {
 
         {/* laugh */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
-          <button onClick={()=> {handleSubmit(); setType("laugh")}}>
+          <button onClick={()=> {handleSubmit(); setType("happy")}}>
             <img
               src={"https://cdn-icons-png.flaticon.com/512/1933/1933576.png"}
               width={45}
