@@ -10,7 +10,7 @@ const Discounts = () => {
   const [data, setData] = useState([]);
 
   useEffect(()=>{
-    axios.get("https://arcane-reaches-19838.herokuapp.com/api/offers").then((response)=>{
+    axios.get("https://strapi-104357-0.cloudclusters.net/api/offers").then((response)=>{
       setData(response.data.data)
       arr.push(response.data.data)
     }).catch((error)=>{
@@ -22,7 +22,7 @@ const Discounts = () => {
 
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/ads")
+      .get("https://strapi-104357-0.cloudclusters.net/api/ads")
       .then((response) => {
         setAd(response.data.data);
       })

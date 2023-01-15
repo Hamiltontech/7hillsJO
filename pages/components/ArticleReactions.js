@@ -50,22 +50,22 @@ const ArticleReactions = ({ data, postID, setReactions, reactions, error, setErr
 
 useEffect(() => {
     if(reactions && postID){
-        const currentReactions = reactions.find(r => r.id === postID);
+        const currentReactions = reactions?.find(r => r.id === postID);
         if(currentReactions){
-            setNumberOfReactions(currentReactions.attributes.reactions.data);
+            setNumberOfReactions(currentReactions?.attributes?.reactions?.data);
         }
     }
 }, [reactions, postID])
 
 
-  const likeCount = numberOfReactions.filter(r => r.attributes.Reaction === 'like').length
-  const loveCount = numberOfReactions.filter(r => r.attributes.Reaction === 'love').length
-  const laughCount = numberOfReactions.filter(r => r.attributes.Reaction === 'laugh').length
-  const dislikeCount = numberOfReactions.filter(r => r.attributes.Reaction === 'dislike').length
-  const clapCount = numberOfReactions.filter(r => r.attributes.Reaction === 'clap').length
-  const sadCount = numberOfReactions.filter(r => r.attributes.Reaction === 'sad').length
-  const shockCount = numberOfReactions.filter(r => r.attributes.Reaction === 'shock').length
-  const angryCount = numberOfReactions.filter(r => r.attributes.Reaction === 'angry').length
+  const likeCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'like').length
+  const loveCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'love').length
+  const laughCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'laugh').length
+  const dislikeCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'dislike').length
+  const clapCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'clap').length
+  const sadCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'sad').length
+  const shockCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'shock').length
+  const angryCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'angry').length
 
 
 

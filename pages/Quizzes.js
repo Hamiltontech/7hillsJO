@@ -9,14 +9,14 @@ import {useEffect, useState} from 'react'
 const Quizzes = () => {
   const [quizzes, setQuizzes] = useState([])
 useEffect(()=>{
-  axios.get("https://arcane-reaches-19838.herokuapp.com/api/quizzes").then(res=>setQuizzes(res.data.data)).catch(err=>console.log(err))
+  axios.get("https://strapi-104357-0.cloudclusters.net/api/quizzes").then(res=>setQuizzes(res.data.data)).catch(err=>console.log(err))
 }, [])
 
 const [ad, setAd] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/ads")
+      .get("https://strapi-104357-0.cloudclusters.net/api/ads")
       .then((response) => {
         setAd(response.data.data);
       })
