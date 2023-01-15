@@ -25,7 +25,7 @@ console.log(postID)
 
 
   const [selectedReaction, setSelectedReaction] = useState(null);
-  const [reactions, setReactions] = useState(null);
+  const [reactions, setReactions] = useState([]);
   const [error, setError] = useState(null);
 
 
@@ -43,21 +43,21 @@ console.log(postID)
 
 
 
-const handleSubmit = async () => {
-  try {
+const handleSubmit =  () => {
+
       // make the post request to the strapi api to create the reaction
-      const response = await axios.post('https://strapi-104357-0.cloudclusters.net/api/reactions', {
+      axios.post('https://strapi-104357-0.cloudclusters.net/api/reactions', {
         "data": {
           "Reaction": "happy",
           "article": 1,
         }
-      });
-      const reactionData = response.data;
-      // update the view with the new reactions count
-      setReactions(reactionData.reactions);
-  } catch (error) {
-      console.error(error);
-  }
+      }).then((response)=>{
+        setReactions(response.data.reactions);
+        console.log(reactions)
+      }).catch((error)=>{
+        console.log(error)
+      })
+ 
 }
 
 if (error) {
