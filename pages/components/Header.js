@@ -13,9 +13,8 @@ import CategoriesDropdown from "./CategoriesDropdown";
 import Menu from './Menu'
 
 
-const Header = () => {
-  // for rendering the categories component
-  const [categories, setCategories] = useState(false)
+const Header = ({categories, setCategories}) => {
+
   // for showing the menu on mobile view
   const [menu, setMenu] = useState(false)
   

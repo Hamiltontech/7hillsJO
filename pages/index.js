@@ -22,6 +22,9 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [spotify, setSpotify] = useState([])
 
+    // for rendering the categories component
+    const [categories, setCategories] = useState(false)
+
   useEffect(()=>{
     axios.get("https://arcane-reaches-19838.herokuapp.com/api/articles").then((response)=>{
       setData(response.data.data)
@@ -46,8 +49,10 @@ export default function Home() {
   return (
     <div>
       <title>7Hills</title>
-      <Header />
+      <Header categories={categories} setCategories={setCategories}/>
   
+
+  <div onClick={()=>setCategories(false)}>
       <MainHero data={data}/>
 
 
@@ -86,7 +91,7 @@ export default function Home() {
           <TopChannelAds />
           {/* footer section */}
         </div>
-
+        </div>
         <Footer />
       </div>
     </div>

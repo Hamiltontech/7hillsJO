@@ -67,7 +67,7 @@ const Contact = () => {
                     </p>
                     <p className="flex px-5 pb-5 text-2xl font-bold underline hover:text-yellow cursor-pointer">
                       <IoMdMail size={25} className="mt-1 mr-1 " />
-                      <a href="mailto: info@7hillsjo.com"></a>info@7hillsjo.com
+                      <a href="mailto: info@7hillsjo.com">info@7hillsjo.com</a>
                     </p>
                     <div>
                       <p className="text-3xl font-bold text-center lg:pt-40 uppercas pt-10">
@@ -75,7 +75,7 @@ const Contact = () => {
                       </p>
                       <div className="flex items-center justify-center gap-5 py-5 pb-10 lg:pb-0">
                         <div className="">
-                          <a href="https://twitter.com/7hillsjo?s=21&t=3FnHNlPzbyKUsuARYeKSng">
+                          <a href="https://twitter.com/7hillsjo?s=21&t=3FnHNlPzbyKUsuARYeKSng"  target="_blank" rel="noreferrer">
                             <AiFillTwitterCircle size={35} className="hover:text-yellow"/>
                           </a>
                         </div>
