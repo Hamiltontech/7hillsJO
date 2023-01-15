@@ -13,11 +13,16 @@ import CategoriesDropdown from "./CategoriesDropdown";
 import Menu from './Menu'
 
 
-const Header = ({categories, setCategories}) => {
+const Header = () => {
 
   // for showing the menu on mobile view
   const [menu, setMenu] = useState(false)
   
+
+      // for rendering the categories component
+      const [categories, setCategories] = useState(false)
+
+
   return (
     <div className="fixed w-full h-[110px] z-[100] bg-red shadow-xl font-blinker">
       <div className="flex items-center justify-between w-full h-full">
@@ -32,7 +37,7 @@ const Header = ({categories, setCategories}) => {
           {/* Categories */}
           <div className={categories?`hidden text-xl font-extrabold text-yellow duration-150 ease-in-out lg:flex  `:`hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex  hover:text-yellow`}>
             <AiFillAppstore className="mx-1 mt-1" />
-            <button className="mb-10" onClick={()=>setCategories(true)}>
+            <button className="mb-10" onClick={()=>setCategories(!categories)}>
               <li className="mr-3 uppercase list-none">Categories </li>
             </button>
             <span className="mr-2 "></span>

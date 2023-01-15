@@ -31,7 +31,7 @@ const TopChannel = ({ data }) => {
                 <div
                   className="w-full lg:h-full bg-cover h-[200px]"
                   style={{
-                    backgroundImage: `url("${item?.attributes?.ImageURL}")`,
+                    backgroundImage: `url("${item?.attributes?.Cover}")`,
                   }}
                 ></div>
                

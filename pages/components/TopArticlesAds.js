@@ -8,7 +8,7 @@ const TopArticlesAds = () => {
 
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/ads")
+      .get("https://strapi-104357-0.cloudclusters.net/api/ads")
       .then((response) => {
         setAd(response.data.data);
       })

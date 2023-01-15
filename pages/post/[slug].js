@@ -20,7 +20,7 @@ const Post = () => {
   // from strapi
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/articles")
+      .get("https://strapi-104357-0.cloudclusters.net/api/articles?populate=*")
       .then((res) => {
         const array = res.data.data;
         const found = array?.find((post) => post.attributes.Slug === slug);

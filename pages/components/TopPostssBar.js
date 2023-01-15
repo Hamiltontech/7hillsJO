@@ -10,7 +10,7 @@ const TopPostssBar = () => {
 
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/articles")
+      .get("https://strapi-104357-0.cloudclusters.net/api/articles")
       .then((response) => {
         setTop(response.data.data);
       })
@@ -40,7 +40,7 @@ const TopPostssBar = () => {
       <div key={key} className="duration-200 ease-in-out  lg:flex  
        hover:bg-light/10 ">
         <div >
-      <div className="bg-cover lg:w-[150px] h-[150px]" style={{"backgroundImage": `url("${item?.attributes?.ImageURL}")`}}></div>
+      <div className="bg-cover lg:w-[150px] h-[150px]" style={{"backgroundImage": `url("${item?.attributes?.Cover}")`}}></div>
       </div>
       <div className="lg:ml-2 lg:mt-0 mt-2">
         <h1 className="font-bold text-sm">

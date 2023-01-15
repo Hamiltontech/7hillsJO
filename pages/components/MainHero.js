@@ -19,7 +19,7 @@ const MainHero = ({ data }) => {
       <div className=" lg:h-[650px] w-full flex justify-between h-[600px]">
         <div
           className="bg-cover lg:w-[65%] w-[50%]"
-          style={{ backgroundImage: `url("${ar[0]?.attributes?.ImageURL}")`}}
+          style={{ backgroundImage: `url("${ar[0]?.attributes?.Cover}")`}}
         >
           <div className="h-full text-white duration-200 ease-in-out bg-blackk/60 hover:bg-blackk/80 text-left px-5 lg:pt-40 pt-40">
           <div className="grid place-items-center lg:block">
@@ -41,7 +41,7 @@ const MainHero = ({ data }) => {
         <div className="bg-dark lg:w-[35%] text-white w-[50%]">
           <div
             className="h-[50%] bg-cover"
-            style={{ backgroundImage: `url("${ar[1]?.attributes?.ImageURL}")` }}
+            style={{ backgroundImage: `url("${ar[1]?.attributes?.Cover}")` }}
           >
             <div className="w-full h-full text-white duration-200 ease-in-out  bg-blackk/70 hover:bg-blackk/80">
             <div className="grid place-items-center lg:block">
@@ -63,7 +63,7 @@ const MainHero = ({ data }) => {
 
            <div
             className="h-[50%] bg-cover"
-            style={{ backgroundImage: `url("${ar[2]?.attributes?.ImageURL}")` }}
+            style={{ backgroundImage: `url("${ar[2]?.attributes?.Cover}")` }}
           >
 
             <div className="w-full h-full text-white duration-200 ease-in-out  bg-blackk/70 hover:bg-blackk/80">

@@ -20,7 +20,7 @@ const Top = ({ data }) => {
                 <div
                   className="w-full h-[300px] bg-cover "
                   style={{
-                    backgroundImage: `url("${item?.attributes?.ImageURL}")`,
+                    backgroundImage: `url("${item?.attributes?.Cover}")`,
                   }}
                 >
                   <div className="w-full h-full duration-200 ease-in-out group bg-blackk/40 hover:bg-blackk/70">
@@ -29,14 +29,14 @@ const Top = ({ data }) => {
                     </h1>
                     <h1 className="flex float-left p-1 text-sm uppercase lg:hidden bg-blackk text-yellow">
                       <BsHeartFill size={20} className="m-1" />
-                      {item?.attributes?.love}
+                    
                     </h1>
 
                     {/* reactions sectino */}
                     <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] hidden group-hover:block ease-in-out duration-200">
                       <button className="lg:flex duration-300 ease-in-out hover:text-white hidden">
                         <BsHeartFill size={25} className="m-1" />
-                        <p className="text-2xl ">{item?.attributes?.love}</p>
+                        {/* <p className="text-2xl ">{item?.attributes?.love}</p> */}
                       </button>
                     </div>
                   </div>
@@ -49,7 +49,7 @@ const Top = ({ data }) => {
                       {item?.attributes?.Abstract}
                     </p>
                     <h1 className="p-1 text-xs uppercase bg-blackk text-yellow">
-                      02/10/2023
+                    {item?.attributes?.createdAt?.slice(0, 10)}
                     </h1>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ const RelatedArticlesBar = () => {
 
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/articles")
+      .get("https://strapi-104357-0.cloudclusters.net/api/articles")
       .then((response) => {
         setData(response.data.data);
       })
@@ -34,7 +34,7 @@ const RelatedArticlesBar = () => {
               <div
                 className="w-full h-full bg-cover cursor-pointer"
                 style={{
-                  backgroundImage: `url("${ar[0]?.attributes?.ImageURL}")`,
+                  backgroundImage: `url("${ar[0]?.attributes?.Cover}")`,
                 }}
               ></div>
               <h1 className="lg:text-md font-bold duration-200 ease-in-out  ">
@@ -52,7 +52,7 @@ const RelatedArticlesBar = () => {
               <div
                 className="w-full h-full bg-cover cursor-pointer "
                 style={{
-                  backgroundImage: `url("${ar[1]?.attributes?.ImageURL}")`,
+                  backgroundImage: `url("${ar[1]?.attributes?.Cover}")`,
                 }}
               ></div>
               <h1 className="lg:text-md font-bold duration-200 ease-in-out   ">
@@ -70,7 +70,7 @@ const RelatedArticlesBar = () => {
               <div
                 className="w-full h-full bg-cover cursor-pointer "
                 style={{
-                  backgroundImage: `url("${ar[2]?.attributes?.ImageURL}")`,
+                  backgroundImage: `url("${ar[2]?.attributes?.Cover}")`,
                 }}
               ></div>
               <h1 className="lg:text-md font-bold duration-200 ease-in-out   ">
@@ -88,7 +88,7 @@ const RelatedArticlesBar = () => {
               <div
                 className="w-full h-full bg-cover cursor-pointer "
                 style={{
-                  backgroundImage: `url("${ar[3]?.attributes?.ImageURL}")`,
+                  backgroundImage: `url("${ar[3]?.attributes?.Cover}")`,
                 }}
               ></div>
               <h1 className="lg:text-md font-bold duration-200 ease-in-out   ">

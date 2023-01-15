@@ -11,30 +11,30 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
   const [comments, setComments] = useState([])
   const [name, setName] = useState("")
 
-  const handleSubmit = () =>{
-    axios.post("https://arcane-reaches-19838.herokuapp.com/api/post-comments", {
-      "data":{
-        "comment" : comment.toString() || "",
-        "post_id": postID.toString() || "",
-        "name": name.toString() || "",
-      }
-    }).then((res)=>{
-      console.log(res)
-      window.location.reload()
-    }).catch((error)=>{
-      console.log(error)
-    })
-  }
-  
+//   const handleSubmit = () =>{
+//     axios.post("https://arcane-reaches-19838.herokuapp.com/api/post-comments", {
+//       "data":{
+//         "comment" : comment.toString() || "",
+//         "post_id": postID.toString() || "",
+//         "name": name.toString() || "",
+//       }
+//     }).then((res)=>{
+//       console.log(res)
+//       window.location.reload()
+//     }).catch((error)=>{
+//       console.log(error)
+//     })
+//   }
 
 
-useEffect(()=>{
-  axios.get("https://arcane-reaches-19838.herokuapp.com/api/post-comments").then((response)=>{
-    setComments(response.data.data)
-  }).catch((error)=>{
-    console.log(error)
-  })
-}, [])
+
+// useEffect(()=>{
+//   axios.get("https://arcane-reaches-19838.herokuapp.com/api/post-comments").then((response)=>{
+//     setComments(response.data.data)
+//   }).catch((error)=>{
+//     console.log(error)
+//   })
+// }, [])
 
 
   return (
@@ -63,7 +63,7 @@ useEffect(()=>{
       {/* cover image */}
       <div
         className="lg:w-[100%] w-[100%] h-60 lg:h-[500px] bg-cover"
-        style={{ backgroundImage: `url("${data?.attributes?.ImageURL}")` }}
+        style={{ backgroundImage: `url("${data?.attributes?.Cover}")` }}
       ></div>
 
       {/* content */}
@@ -89,16 +89,17 @@ useEffect(()=>{
       <div class="flex h-full bg-gray-800 justify-center items-center">
         <div class="  p-2 pt-4 rounded  w-full lg:mx-20">
           <div class="mt-3 p-3 w-full">
-            <input onChange={(e)=>{
-              setName(e.target.value)
-            }}
+            <input 
+            // onChange={(e)=>{
+            //   setName(e.target.value)
+            // }}
             className=" w-full outline-0 p-1 mb-2 border border-light/10 rounded px-2"
             placeholder="Your Name.."
             />
             <textarea
-              onChange={(e) => {
-                setComment(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   setComment(e.target.value);
+              // }}
               rows="3"
               class="border p-2 rounded w-full border-light/10 outline-0"
               placeholder="Write something..."
@@ -108,7 +109,7 @@ useEffect(()=>{
           <div class="flex justify-between mx-3">
             <div>
               <button
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
                 class=" relative px-4 py-1 bg-gray-800 text-white rounded font-light hover:bg-gray-700 bg-red hover:bg-red/80 ease-in-out duration-150"
               >Submit
               </button>
@@ -120,24 +121,24 @@ useEffect(()=>{
             <h3 className="text-2xl">Comments</h3>
             <hr className="pb-5" />
             <div>
-              {
+              {/* {
                 comments?.map((item)=>{
                   if(item?.attributes?.post_id === postID.toString()){
                     return(
-                      <>
+                      <> */}
                       
                       <div className="lg:flex justify-between mx-10 py-5"> 
-                      <div className="flex"><h1 className="font-bold mt-2 text-light">{item?.attributes?.name}: </h1>
-                      <h1 className="my-2 mx-2">{item?.attributes?.comment}</h1></div>
-                      <h1 className="my-2 text-xs"><span className="text-xs">Created at </span>{item?.attributes?.createdAt.slice(12,13)}{item?.attributes?.createdAt.slice(11,12)}{item?.attributes?.createdAt.slice(13,16)} . {item?.attributes?.createdAt.slice(0,10)} </h1>
+                      <div className="flex"><h1 className="font-bold mt-2 text-light">name: </h1>
+                      <h1 className="my-2 mx-2">comment</h1></div>
+                      <h1 className="my-2 text-xs"><span className="text-xs">Created at </span> </h1>
                       </div>
                       <hr className="text-blackk/10"/>
 
-                      </>
+                      {/* </>
                     )
                   }
                 })
-              }
+              } */}
             </div>
           </div>
         </div>
@@ -148,3 +149,6 @@ useEffect(()=>{
 };
 
 export default ArticleSection;
+
+
+// {item?.attributes?.createdAt.slice(12,13)}{item?.attributes?.createdAt.slice(11,12)}{item?.attributes?.createdAt.slice(13,16)} . {item?.attributes?.createdAt.slice(0,10)}
