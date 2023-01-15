@@ -83,9 +83,9 @@ useEffect(() => {
         <div className="grid place-items-center text-light/80 mt-10">
             <h1 className="font-bold">What do you think?</h1>
             <h1 className="font-extralight">Number of Responses</h1>
-            <div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4">
-            <form>
-            <div className="reaction-buttons">
+            {/* <div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4"> */}
+            {/* <form> */}
+            {/* <div className="reaction-buttons">
     <button type="button" onClick={() => {setType("like"); handleSubmit()}}>Like</button>
     <button type="button" onClick={() => {setType("love"); handleSubmit()}}>Love</button>
     <button type="button" onClick={() => {setType("laugh"); handleSubmit()}}>Laugh</button>
@@ -94,28 +94,128 @@ useEffect(() => {
     <button type="button" onClick={() => {setType("sad"); handleSubmit()}}>Sad</button>
     <button type="button" onClick={() => {setType("shock"); handleSubmit()}}>Shock</button>
     <button type="button" onClick={() => {setType("angry"); handleSubmit()}}>Angry</button>
-</div>
+</div> */}
 
 
-</form>
+{/* </form> */}
 {/* ADD THE IMAGE */}
-<h1 className="px-3 font-semibold">Likes {likeCount}</h1>
+{/* <h1 className="px-3 font-semibold">Likes {likeCount}</h1>
 <h1 className="px-3 font-semibold">Love {loveCount}</h1>
 <h1 className="px-3 font-semibold">Laugh {laughCount}</h1>
 <h1 className="px-3 font-semibold">Dislike {dislikeCount}</h1>
 <h1 className="px-3 font-semibold">Clap {clapCount}</h1>
 <h1 className="px-3 font-semibold">Sad {sadCount}</h1>
 <h1 className="px-3 font-semibold">Shock {shockCount}</h1>
-<h1 className="px-3 font-semibold">Angry {angryCount}</h1>
+<h1 className="px-3 font-semibold">Angry {angryCount}</h1> */}
 
+<div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4">
+        {/* like */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("like"); handleSubmit()}}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/upvote-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{likeCount}</h1>
+        </div>
 
+        {/* love */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("love"); handleSubmit()}}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/love-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{loveCount}</h1>
+        </div>
 
+        {/* laugh */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("laugh"); handleSubmit()}}>
+            <img
+              src={"https://cdn-icons-png.flaticon.com/512/1933/1933576.png"}
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{laughCount}</h1>
+        </div>
+
+        {/* shocked */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("shock"); handleSubmit()}}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/surprised-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{shockCount}</h1>
+        </div>
+
+        {/* angry */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("angry"); handleSubmit()}}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/angry-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{angryCount}</h1>
+        </div>
+
+        {/* clapping */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("clap"); handleSubmit()}}>
+            <img
+              src={"https://cdn-icons-png.flaticon.com/512/1629/1629881.png"}
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{clapCount}</h1>
+        </div>
+
+        {/* sad */}
+        <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
+        <button type="button" onClick={() => {setType("sad"); handleSubmit()}}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/sad-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          <h1 className="px-3 font-semibold">{sadCount}</h1>
+        </div>
+      </div>
 
 
 
 
               
-        </div>
+        {/* </div> */}
       </div>
   );
 };
