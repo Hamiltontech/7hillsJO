@@ -32,7 +32,7 @@ const Header = ({categories, setCategories}) => {
           {/* Categories */}
           <div className={categories?`hidden text-xl font-extrabold text-yellow duration-150 ease-in-out lg:flex  `:`hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex  hover:text-yellow`}>
             <AiFillAppstore className="mx-1 mt-1" />
-            <button className="mb-10" onClick={()=>setCategories(!categories)}>
+            <button className="mb-10" onClick={()=>setCategories(true)}>
               <li className="mr-3 uppercase list-none">Categories </li>
             </button>
             <span className="mr-2 "></span>
