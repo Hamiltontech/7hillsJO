@@ -67,7 +67,7 @@ const Contact = () => {
                     </p>
                     <p className="flex px-5 pb-5 text-2xl font-bold underline hover:text-yellow cursor-pointer">
                       <IoMdMail size={25} className="mt-1 mr-1 " />
-                      <a href="mailto:info@7hillsjo.com"></a>info@7hillsjo.com
+                      <a href="mailto: info@7hillsjo.com"></a>info@7hillsjo.com
                     </p>
                     <div>
                       <p className="text-3xl font-bold text-center lg:pt-40 uppercas pt-10">
@@ -94,13 +94,13 @@ const Contact = () => {
                             <AiFillFacebook size={35} className="hover:text-yellow"/>
                           </a>
                         </div>
-                        <div className="" target="_blank" rel="noreferrer">
-                          <a href="https://www.linkedin.com/company/7hillsjo/about/">
+                        <div className="">
+                          <a href="https://www.linkedin.com/company/7hillsjo/about/" target="_blank" rel="noreferrer">
                             <AiFillLinkedin size={35} className="hover:text-yellow"/>
                           </a>
                         </div>
-                        <div className="" target="_blank" rel="noreferrer">
-                          <a href="">
+                        <div className="" >
+                          <a href=""  target="_blank" rel="noreferrer">
                             <IoLogoTiktok size={35} className="hover:text-yellow"/>
                           </a>
                         </div>

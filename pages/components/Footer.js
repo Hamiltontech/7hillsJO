@@ -24,19 +24,19 @@ const Footer = () => {
               <Link target="_blank" href="https://www.instagram.com/7hillsjo/">
                 <AiFillInstagram size={30} className="mx-2 hover:text-yellow" />
               </Link>
-              <Link href="https://twitter.com/7hillsjo?s=21&t=3FnHNlPzbyKUsuARYeKSng/">
+              <Link href="https://twitter.com/7hillsjo?s=21&t=3FnHNlPzbyKUsuARYeKSng/" target="_blank">
                 <AiFillTwitterCircle
                   size={30}
                   className="mx-2 hover:text-yellow"
                 />
               </Link>
-              <Link href="/">
+              <Link href="/" target="_blank">
                 <IoLogoTiktok size={30} className="mx-2 hover:text-yellow" />
               </Link>
-              <Link href="https://www.facebook.com/7hillsjo?mibextid=LQQJ4d/">
+              <Link href="https://www.facebook.com/7hillsjo?mibextid=LQQJ4d/" target="_blank">
                 <AiFillFacebook size={30} className="mx-2 hover:text-yellow" />
               </Link>
-              <Link href="https://www.linkedin.com/company/7hillsjo/about/">
+              <Link href="https://www.linkedin.com/company/7hillsjo/about/" target="_blank">
                 <AiFillLinkedin size={30} className="mx-2 hover:text-yellow" />
               </Link>
             </div>
