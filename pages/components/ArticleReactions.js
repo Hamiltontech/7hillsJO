@@ -5,32 +5,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const ArticleReactions = ({ data, postID }) => {
-  // const [likeNo, setLikeNo] = useState(0);
-  // const [like, setLike] = useState(0);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("https://arcane-reaches-19838.herokuapp.com/api/reactions/1")
-  //     .then((response) => {
-  //       if (postID === response.data.data.attributes.PostID) {
-  //         setLike(response.data.data.attributes.Number);
-  //       }
-  //     });
-  // }, [likeNo]);
-
-  // console.log(like);
-
-
-console.log(postID)
-
-
-  const [selectedReaction, setSelectedReaction] = useState(null);
   const [reactions, setReactions] = useState([]);
   const [error, setError] = useState(null);
+  const [type, setType] = useState("")
+
+  const [loading, setLoading] = useState(false)
 
 
   useEffect(() => {
-
     axios.get(`https://strapi-104357-0.cloudclusters.net/api/articles/${postID}?populate=*`)
     .then(res => {
         setReactions(res?.data?.data?.attributes?.reactions?.data);
@@ -44,12 +27,11 @@ console.log(postID)
 
 
 const handleSubmit =  () => {
-
       // make the post request to the strapi api to create the reaction
       axios.post('https://strapi-104357-0.cloudclusters.net/api/reactions', {
         "data": {
-          "Reaction": "happy",
-          "article": 1,
+          "Reaction": "happy", 
+          "article": 2,
         }
       }).then((response)=>{
         setReactions(response.data.reactions);
@@ -57,7 +39,6 @@ const handleSubmit =  () => {
       }).catch((error)=>{
         console.log(error)
       })
- 
 }
 
 if (error) {
@@ -65,22 +46,10 @@ if (error) {
 }
 
 if (!reactions) {
-  return <p>Loading...</p>
+  return <p>Loading...</p> 
+  
 }
 
-
-
-
-// let happy = []
-
-// reactions?.map((item)=>{
-//   if(item?.attributes?.Reaction === "happy"){
-//     happy.push(item.attributes.Reaction)
-//     return(
-//       happy
-//     )
-//   }
-// })
 
   return (
     <div className="grid place-items-center text-light/80 mt-10">
@@ -88,11 +57,18 @@ if (!reactions) {
       <h1 className="font-extralight">No. Responses</h1>
       <div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4">
 
-
+{reactions?.reactions?.data?.map((item)=>{
+  return(
+    <>
+    <h1>{item?.attributes?.Reaction}</h1> 
+    </>
+  )
+}
+)} 
 
         {/* like */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
-          <button>
+          <button onClick={()=> {handleSubmit(); setType("like")}}>
             <img
               src={
                 "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/upvote-512x512.png"
@@ -107,7 +83,7 @@ if (!reactions) {
 
         {/* love */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
-          <button>
+          <button onClick={()=> {handleSubmit(); setType("love")}}>
             <img
               src={
                 "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/love-512x512.png"
@@ -125,7 +101,7 @@ if (!reactions) {
 
         {/* laugh */}
         <div className="bg-[#F8F8FF] rounded-full flex justify-between items-center px-2 py-1 hover:bg-blackk/20">
-          <button onClick={handleSubmit}>
+          <button onClick={()=> {handleSubmit(); setType("laugh")}}>
             <img
               src={"https://cdn-icons-png.flaticon.com/512/1933/1933576.png"}
               width={45}
@@ -133,7 +109,11 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">{reactions?.filter(r => r?.attributes?.Reaction === 'happy').length}</h1>
+          <h1 className="px-3 font-semibold">
+            
+          {reactions?.filter(r => r?.attributes?.Reaction === 'happy').length} 
+            
+            </h1>
         </div>
 
         {/* shocked */}

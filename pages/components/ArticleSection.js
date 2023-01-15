@@ -11,30 +11,28 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
   const [comments, setComments] = useState([])
   const [name, setName] = useState("")
 
-//   const handleSubmit = () =>{
-//     axios.post("https://arcane-reaches-19838.herokuapp.com/api/post-comments", {
-//       "data":{
-//         "comment" : comment.toString() || "",
-//         "post_id": postID.toString() || "",
-//         "name": name.toString() || "",
-//       }
-//     }).then((res)=>{
-//       console.log(res)
-//       window.location.reload()
-//     }).catch((error)=>{
-//       console.log(error)
-//     })
-//   }
+  const handleSubmit = () =>{
+    axios.post("https://strapi-104357-0.cloudclusters.net/api/post-comments", {
+      "data":{
+        "comment" : comment.toString() || "",
+        "post_id": postID.toString() || "",
+        "name": name.toString() || "",
+      }
+    }).then((res)=>{
+      console.log(res)
+      window.location.reload()
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
 
-
-
-// useEffect(()=>{
-//   axios.get("https://arcane-reaches-19838.herokuapp.com/api/post-comments").then((response)=>{
-//     setComments(response.data.data)
-//   }).catch((error)=>{
-//     console.log(error)
-//   })
-// }, [])
+useEffect(()=>{
+  axios.get("https://strapi-104357-0.cloudclusters.net/api/post-comments").then((response)=>{
+    setComments(response.data.data)
+  }).catch((error)=>{
+    console.log(error)
+  })
+}, [])
 
 
   return (
@@ -121,11 +119,11 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
             <h3 className="text-2xl">Comments</h3>
             <hr className="pb-5" />
             <div>
-              {/* {
+              {
                 comments?.map((item)=>{
                   if(item?.attributes?.post_id === postID.toString()){
                     return(
-                      <> */}
+                      <>
                       
                       <div className="lg:flex justify-between mx-10 py-5"> 
                       <div className="flex"><h1 className="font-bold mt-2 text-light">name: </h1>
@@ -134,11 +132,11 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
                       </div>
                       <hr className="text-blackk/10"/>
 
-                      {/* </>
+                      </>
                     )
                   }
                 })
-              } */}
+              }
             </div>
           </div>
         </div>
