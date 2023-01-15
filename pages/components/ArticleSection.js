@@ -8,11 +8,33 @@ import ReactMarkdown from "react-markdown";
 
 const ArticleSection = ({ data, comment, setComment, postID }) => {
 
+// reactions
+const [reactions, setReactions] = useState(null);
+const [error, setError] = useState(null);
+const [type, setType] = useState("")
+
+
+useEffect(() => {
+  axios.get(`https://strapi-104357-0.cloudclusters.net/api/articles/${postID}?populate=*`)
+  .then(res => {
+      setReactions(res.data.data)
+  
+  })
+  .catch(err => {
+      setError(err);
+  });
+}, []);
+
+
+
+
+
+
   const [comments, setComments] = useState([])
   const [name, setName] = useState("")
 
   const handleSubmit = () =>{
-    axios.post("https://strapi-104357-0.cloudclusters.net/api/post-comments", {
+    axios.post("https://strapi-104357-0.cloudclusters.net/api/comments", {
       "data":{
         "comment" : comment.toString() || "",
         "post_id": postID.toString() || "",
@@ -27,12 +49,16 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
   }
 
 useEffect(()=>{
-  axios.get("https://strapi-104357-0.cloudclusters.net/api/post-comments").then((response)=>{
+  axios.get("https://strapi-104357-0.cloudclusters.net/api/comments").then((response)=>{
     setComments(response.data.data)
   }).catch((error)=>{
     console.log(error)
   })
 }, [])
+
+
+
+
 
 
   return (
@@ -78,7 +104,7 @@ useEffect(()=>{
       {/* <Comment /> */}
 
       <div className="w-full flex justify-center ">
-      <ArticleReactions data={data} postID={postID} />
+      <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/>
       </div>
 
       

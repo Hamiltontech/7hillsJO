@@ -4,26 +4,18 @@ import sky from "../../public/Images/placeholder.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const ArticleReactions = ({ data, postID }) => {
-
-  const [reactions, setReactions] = useState([]);
-  const [error, setError] = useState(null);
-  const [type, setType] = useState("")
-
-  const [loading, setLoading] = useState(false)
+const ArticleReactions = ({ data, postID, setReactions, reactions, error, setError, type, setType }) => {
+const [numberOfReactions, setNumberOfReactions] = useState([])
 
 
-  useEffect(() => {
-    axios.get(`https://strapi-104357-0.cloudclusters.net/api/articles/${postID}?populate=*`)
-    .then(res => {
-        setReactions(res?.data?.data?.attributes?.reactions?.data);
-        console.log(res)
-    })
-    .catch(err => {
-        setError(err);
-    });
-}, []);
 
+useEffect(()=>{
+reactions?.map((item)=>{
+  if(item?.id === postID){
+    setNumberOfReactions(item?.attributes?.reactions?.data)
+  }
+})
+}, [])
 
 
 const handleSubmit =  () => {
@@ -34,8 +26,8 @@ const handleSubmit =  () => {
           "article": 2,
         }
       }).then((response)=>{
-        setReactions(response.data.reactions);
-        console.log(reactions)
+        setReactions(response.data.data)  
+        // setReactions(response.data.reactions); 
       }).catch((error)=>{
         console.log(error)
       })
@@ -48,8 +40,8 @@ if (error) {
 if (!reactions) {
   return <p>Loading...</p> 
   
-}
-
+} 
+ 
 
   return (
     <div className="grid place-items-center text-light/80 mt-10">
@@ -78,7 +70,7 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">No.</h1>
+          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'like').length} </h1>
         </div>
 
         {/* love */}
@@ -94,7 +86,7 @@ if (!reactions) {
             />
           </button>
           <h1 className="px-3 font-semibold">
-          No.
+          {numberOfReactions?.filter(r => r?.attributes?.Reaction === 'love').length} 
 
           </h1>
         </div>
@@ -111,7 +103,7 @@ if (!reactions) {
           </button>
           <h1 className="px-3 font-semibold">
             
-          {reactions?.filter(r => r?.attributes?.Reaction === 'happy').length} 
+          {numberOfReactions?.filter(r => r?.attributes?.Reaction === 'happy').length} 
             
             </h1>
         </div>
@@ -128,7 +120,7 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">No.</h1>
+          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'shock').length} </h1>
         </div>
 
         {/* angry */}
@@ -143,7 +135,7 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">No.</h1>
+          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'angry').length} </h1>
         </div>
 
         {/* clapping */}
@@ -156,7 +148,7 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">No.</h1>
+          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'clap').length} </h1>
         </div>
 
         {/* sad */}
@@ -171,7 +163,7 @@ if (!reactions) {
               className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
             />
           </button>
-          <h1 className="px-3 font-semibold">No.</h1>
+          <h1 className="px-3 font-semibold">{numberOfReactions?.filter(r => r?.attributes?.Reaction === 'sad').length} </h1>
         </div>
       </div>
     </div>
