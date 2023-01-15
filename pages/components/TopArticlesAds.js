@@ -11,6 +11,7 @@ const TopArticlesAds = () => {
       .get("https://strapi-104357-0.cloudclusters.net/api/ads")
       .then((response) => {
         setAd(response.data.data);
+        console.log(response)
       })
       .catch((error) => {
         console.log(error);

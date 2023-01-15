@@ -9,6 +9,8 @@ import {
 } from "react-icons/ai";
 import { IoLogoTiktok } from "react-icons/io5";
 import { GoPrimitiveDot } from "react-icons/go";
+import imag from '../../public/Images/hamilton.svg'
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -125,7 +127,16 @@ const Footer = () => {
             </div>
         {/* <div className='w-full h-full bg-blackk'>all rights reserved</div> */}
       </div>
+
+
+      <div className="grid grid-cols-3 ">
+        <div></div>
       <h1 className="text-center lg:pt-2 text-sm py-1">© All Rights Reserved </h1>
+      <div className="justify-end flex mx-5">
+
+        <Image src="https://www.hst.jo/web/image/357-7dd3ad27/logo-light.svg" width="100" height="100"/>
+      </div>
+      </div>
     </div>
   );
 };

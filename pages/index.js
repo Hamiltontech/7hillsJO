@@ -50,8 +50,6 @@ export default function Home() {
       <title>7Hills</title>
       <Header />
   
-
-  
       <MainHero data={data}/>
 
 

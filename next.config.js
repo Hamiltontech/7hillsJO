@@ -19,7 +19,7 @@ const withPWA = require('next-pwa')({
 module.exports = withPWA({
   reactStrictMode: true,
   images: {
-    domains: ['cdn-icons-png.flaticon.com', 'img.freepik.com', 'codedbychavez.hashnode.dev'],
+    domains: ['cdn-icons-png.flaticon.com', 'img.freepik.com', 'codedbychavez.hashnode.dev', 'www.hst.jo'],
   }, 
 })
 
