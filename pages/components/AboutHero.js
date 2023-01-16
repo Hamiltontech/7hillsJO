@@ -8,7 +8,7 @@ const AboutHero = () => {
   return (
     <div className="w-full pt-[100px] font-blinker ">
       <div className=" h-[500px] w-full flex justify-between">
-        <div className='lg:bg-fixed bg-cover bg-[url("https://images.unsplash.com/photo-1617419250411-98aa962b070f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&w=1240")] lg:w-full w-full'>
+        <div className='lg:bg-fixed bg-cover bg-[url("https://lh3.googleusercontent.com/proxy/nMIspgHzTUU0GzmiadmPphBelzF2xy9-tIiejZg3VvJTITxUb-1vILxf-IsCfyl94VSn6YvHa8_PiIyR9d3rwD8ZhNdQ1C1rnblP6zy3OaI=w3840-h2160-p-k-no-nd-mv")] lg:w-full w-full'>
           <div className="h-full text-white bg-blackk/60 ">
             <h1 className="pt-40 text-5xl font-extrabold text-center lg:pt-20 lg:ml-10 md:text-6xl lg:text-9xl lg:text-left">
               About Us

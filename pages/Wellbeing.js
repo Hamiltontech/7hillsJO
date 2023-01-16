@@ -9,7 +9,7 @@ const Wellbeing = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/articles")
+      .get("https://strapi-104357-0.cloudclusters.net/api/articles")
       .then((response) => {
         let arr = response.data.data.filter(
           (ele) => ele.attributes.Category === "wellbeing"
@@ -30,7 +30,7 @@ const Wellbeing = () => {
         <div className='lg:bg-fixed bg-cover bg-[url("https://images.unsplash.com/photo-1617419250411-98aa962b070f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&w=1240")] lg:w-full w-full'>
           <div className="h-full text-white bg-blackk/60 ">
             <h1 className="pt-40 text-5xl font-extrabold text-center lg:pt-20 lg:ml-10 md:text-6xl lg:text-9xl lg:text-left">
-              Wellness
+              Wellbeing
             </h1>
             <p className=" lg:ml-10 text-center lg:text-left lg:max-w-[500px]">
               Decription about this category
@@ -47,18 +47,18 @@ const Wellbeing = () => {
         Latest Articles
       </h1>
       <hr className="mx-10" />
-      <hr className="mx-10  " />
+      <hr className="mx-10 " />
 
-        <div className="grid gap-1 justify-center align-middle p-10 lg:grid-cols-5">
+        <div className="grid gap-1 justify-center align-middle p-10 lg:grid-cols-5 pt-0">
           {/* cards  */}
           {data.map((item, key) => (
             <>
              <Link href={"/post/" + item?.attributes?.Slug}>
-             <div className="h-full py-16 lg:mb-[200px]  hover:text-blackk/50 ease-in-out duration-200" key={key}>
+             <div className="h-full lg:mb-[200px] mt-5 hover:text-blackk/50 ease-in-out duration-200" key={key}>
                 <div
-                  className="w-full h-full bg-cover"
+                  className="w-full h-[300px] bg-cover "
                   style={{
-                    backgroundImage: `url("${item?.attributes?.ImageURL}")`,
+                    backgroundImage: `url("${item?.attributes?.Cover}")`,
                   }}
                 ></div>
                

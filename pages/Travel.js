@@ -9,7 +9,7 @@ const Travel = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("https://arcane-reaches-19838.herokuapp.com/api/articles")
+      .get("https://strapi-104357-0.cloudclusters.net/api/articles")
       .then((response) => {
         let arr = response.data.data.filter(
           (ele) => ele.attributes.Category === "travel"
@@ -58,7 +58,7 @@ const Travel = () => {
                 <div
                   className="w-full h-[300px] bg-cover "
                   style={{
-                    backgroundImage: `url("${item?.attributes?.ImageURL}")`,
+                    backgroundImage: `url("${item?.attributes?.Cover}")`,
                   }}
                 ></div>
                

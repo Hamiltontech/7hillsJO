@@ -18,10 +18,10 @@ const TopQuizzes = () => {
       {quizzes?.map((item) => {
         return (
           <>
-          <Link href={item?.attributes?.URL}>
+          <Link href={item?.attributes?.URL} target="_blank">
             <div className="h-[220px] text-white cursor-pointer ">
               <div className='w-full h-full bg-cover'  style={{"backgroundImage": `url("${item?.attributes?.Image}")`,}}>
-              <div className='relative w-full h-full text-white duration-200 ease-in-out bg-blackk/40 hover:bg-blackk/10'>
+              <div className='relative w-full h-full text-white duration-200 ease-in-out bg-blackk/40 hover:bg-blackk/70'>
                 <div className="absolute top-[20%] lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] ">
                   {/* links to the quiz page */}
                   <h1 className="text-sm font-bold text-center lg:text-xl px-2">

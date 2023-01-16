@@ -47,7 +47,7 @@ const Contact = () => {
             {/* left */}
             <div className="w-full h-full col-span-3 text-white lg:col-span-2">
               <div className="w-full h-full">
-                <div className="w-full lg:h-screen   bg-cover bg-[url('https://images.unsplash.com/photo-1667792932202-4719a8a1acfd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')]">
+                <div className="w-full lg:h-screen   bg-cover bg-[url('https://lh3.googleusercontent.com/proxy/nMIspgHzTUU0GzmiadmPphBelzF2xy9-tIiejZg3VvJTITxUb-1vILxf-IsCfyl94VSn6YvHa8_PiIyR9d3rwD8ZhNdQ1C1rnblP6zy3OaI=w3840-h2160-p-k-no-nd-mv')]">
                   <div className="w-full lg:h-full bg-blackk/60 ">
                     <div>
                       <h1 className="p-5 text-5xl font-bold uppercase">

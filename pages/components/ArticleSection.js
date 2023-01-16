@@ -8,6 +8,8 @@ import ReactMarkdown from "react-markdown";
 
 const ArticleSection = ({ data, comment, setComment, postID }) => {
 
+
+console.log(data)
 // reactions
 const [reactions, setReactions] = useState(null);
 const [error, setError] = useState(null);
@@ -55,6 +57,8 @@ useEffect(()=>{
 
 
 
+console.log(comments)
+
   return (
     <div className="font-blinker">
       {/* category and date */}
@@ -98,7 +102,7 @@ useEffect(()=>{
       {/* <Comment /> */}
 
       <div className="w-full flex justify-center ">
-      <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/>
+      {/* <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/> */}
       </div>
 
       
@@ -142,12 +146,26 @@ useEffect(()=>{
               {
                 comments?.map((item)=>{
                   if(item?.attributes?.post_id === postID.toString()){
+                    const time = parseInt(item?.attributes?.createdAt.slice(12,13)) + 3
                     return(
                       <>
                       <div className="lg:flex justify-between mx-10 py-5"> 
                       <div className="flex"><h1 className="font-bold mt-2 text-light">{item?.attributes?.name} </h1>
                       <h1 className="my-2 mx-2">{item?.attributes?.comment}</h1></div>
-                      <h1 className="my-2 text-xs"><span className="text-xs">Created at{item?.attributes?.createdAt.slice(12,13)}{item?.attributes?.createdAt.slice(11,12)}{item?.attributes?.createdAt.slice(13,16)} . {item?.attributes?.createdAt.slice(0,10)} </span> </h1>
+                      <h1 className="my-2 text-xs"><span className="text-xs"><span className="mr-1">Posted at</span>
+                 
+                      {time}
+                      {item?.attributes?.createdAt.slice(13,16)} 
+                    
+                      </span>
+                      
+                       {/* {item?.attributes?.createdAt.slice(0,10)} */}
+                       <span className="mx-1">
+                       {item?.attributes?.createdAt.slice(8,10)}
+                       {item?.attributes?.createdAt.slice(4,8)}
+                       {item?.attributes?.createdAt.slice(0,4)}
+                       </span>
+                       </h1>
                       </div>
                       <hr className="text-blackk/10"/>
 

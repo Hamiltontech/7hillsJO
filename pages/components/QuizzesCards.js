@@ -8,7 +8,7 @@ const QuizzesCards = ({quizzes}) => {
     {quizzes?.map((item, key)=>(
       <>
 
-      <Link href={item?.attributes?.URL}>
+      <Link href={item?.attributes?.URL} target="_blank">
       <div key={key} className="duration-200 ease-in-out lg:p-5 lg:flex bg-light/10 p-3 hover:bg-light/20 ">
         <div >
       <div className="bg-cover lg:w-[200px] h-[150px]" style={{"backgroundImage": `url("${item?.attributes?.Image}")` }}></div>

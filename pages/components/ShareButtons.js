@@ -26,14 +26,13 @@ import {
 
 const ShareButtons = ({ slug }) => {
 
-
   function copied() {
     setTimeout(function() {
         document.getElementById('mydiv').style.display = 'block';
     });
     setTimeout(function() {
       document.getElementById('mydiv').style.display = 'none';
-  }, 1000)
+  }, 2000)
 }
 
   return (
@@ -105,7 +104,7 @@ const ShareButtons = ({ slug }) => {
         >
           <AiFillCopy size={25} />
         </button>
-        <div id="mydiv" style={{"display": "none"}} className="bg-white rounded-full p-1 text-sm">copied!</div>
+        <div id="mydiv" style={{"display": "none"}} className="bg-white rounded-full p-1 text-sm">Link copied!</div>
       </div>
     </div>
   );
