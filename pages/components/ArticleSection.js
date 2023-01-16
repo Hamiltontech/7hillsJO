@@ -27,9 +27,6 @@ useEffect(() => {
 
 
 
-
-
-
   const [comments, setComments] = useState([])
   const [name, setName] = useState("")
 
