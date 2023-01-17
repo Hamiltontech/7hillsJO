@@ -116,7 +116,7 @@ const Footer = () => {
         <hr  className="text-white/20 mt-10 mb-5"/>
 
 
-        <div className="flex justify-between lg:px-20">
+        <div className="lg:flex justify-between lg:px-20">
         <div className=" flex  justify-center lg:justify-start">
               <Link href="/About">
                 <h1 className="text-white hover:text-yellow ">About <span className="mx-2">|</span>  </h1>
@@ -131,7 +131,7 @@ const Footer = () => {
         {/* <div className='w-full h-full bg-blackk'>all rights reserved</div> */}
       
 
-      <div className=" flex justify-end ">
+      <div className=" flex lg:justify-end justify-center mt-5 lg:mt-0 ">
  <p className="mr-2 mt-1">Powered by </p>
  <Link href="https://www.hst.jo/" target="_blank">
 <Image src="https://www.hst.jo/web/image/357-7dd3ad27/logo-light.svg" width="140" height="100" className="-"/>
