@@ -8,7 +8,6 @@ import ReactMarkdown from "react-markdown";
 
 const ArticleSection = ({ data, comment, setComment, postID }) => {
 
-
 console.log(data)
 // reactions
 const [reactions, setReactions] = useState(null);
@@ -20,13 +19,11 @@ useEffect(() => {
   axios.get(`https://strapi-104357-0.cloudclusters.net/api/articles/${postID}?populate=*`)
   .then(res => {
       setReactions(res.data.data)
-  
   })
   .catch(err => {
       setError(err);
   });
 }, []);
-
 
 
   const [comments, setComments] = useState([])
@@ -55,9 +52,6 @@ useEffect(()=>{
   })
 }, [])
 
-
-
-console.log(comments)
 
   return (
     <div className="font-blinker">
@@ -102,7 +96,7 @@ console.log(comments)
       {/* <Comment /> */}
 
       <div className="w-full flex justify-center ">
-      {/* <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/> */}
+      <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/>
       </div>
 
       
@@ -139,9 +133,9 @@ console.log(comments)
           </div>
 
           <hr className="my-4 text-blackk/10" />
-          <div className="flex flex-col w-full p-5 mx-auto my-10 space-y-2 rounded-lg  shadow-gray-300">
+          <div className="flex flex-col w-full p-5 mx-auto my-10 space-y-2 rounded-lg shadow-gray-300">
             <h3 className="text-2xl">Comments</h3>
-            <hr className="pb-5" />
+            <hr className="pb-5"/>
             <div>
               {
                 comments?.map((item)=>{
@@ -149,7 +143,7 @@ console.log(comments)
                     const time = parseInt(item?.attributes?.createdAt.slice(12,13)) + 3
                     return(
                       <>
-                      <div className="lg:flex justify-between mx-10 py-5"> 
+                      <div className="lg:flex justify-between lg:mx-10 py-5"> 
                       <div className="flex"><h1 className="font-bold mt-2 text-light">{item?.attributes?.name} </h1>
                       <h1 className="my-2 mx-2">{item?.attributes?.comment}</h1></div>
                       <h1 className="my-2 text-xs"><span className="text-xs"><span className="mr-1">Posted at</span>

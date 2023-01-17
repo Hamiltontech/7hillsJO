@@ -8,7 +8,7 @@ const ArticleReactions = ({ data, postID, setReactions, reactions, error, setErr
 
     useEffect(() => {
         if(reactions && Array.isArray(reactions)){
-            const currentReactions = reactions.find(r => r.id === postID);
+            const currentReactions = reactions?.find(r => r?.id === postID);
             if(currentReactions){
                 setNumberOfReactions(currentReactions.attributes.reactions.data);
                 setLoading(false);
