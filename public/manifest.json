@@ -1,10 +1,10 @@
 {
-    "theme_color": "#DC2E23",
-    "background_color": "#090302",
-    "display": "standalone",
+    "theme_color": "#090302",
+    "background_color": "#DC2E23",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
-    "name": "7Hills Jordan",
+    "name": "7hills",
     "short_name": "7hillsjo",
     "description": "Online Magazine",
     "icons": [
