@@ -1,12 +1,6 @@
 let deferredPrompt;
-const addBtn = document.getElementById('add-to-home-screen');
+const addBtn = document.getElementById('add-button');
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Show the add to home screen message
-  addBtn.classList.remove('hidden');
-});
 addBtn.addEventListener('click', (e) => {
   // hide the message
   addBtn.classList.add('hidden');
