@@ -1,68 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
-const ArticleReactions = ({ data, postID, setReactions, reactions, error, setError, type, setType }) => {
-    const [numberOfReactions, setNumberOfReactions] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const token = "your token here";
+const ArticleReactions = ({ data, postID, setReactions, reactions: rawReactions, error, setError, type, setType }) => {
+  const [numberOfReactions, setNumberOfReactions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const token = "your token here";
+  const reactions = Array.isArray(rawReactions) ? rawReactions : [];
 
-    useEffect(() => {
-        if(reactions && Array.isArray(reactions)){
-            const currentReactions = reactions?.find(r => r?.id === postID);
-            if(currentReactions){
-                setNumberOfReactions(currentReactions.attributes.reactions.data);
-                setLoading(false);
-            }else{
-                setLoading(false);
-            }
+  const getReactionCount = useCallback(() => {
+    if(reactions && Array.isArray(reactions)){
+        const currentReactions = reactions?.find(r => r?.id === postID);
+        if(currentReactions){
+            setNumberOfReactions(currentReactions.attributes.reactions.data);
+            setLoading(false);
         }else{
             setLoading(false);
         }
-    }, [reactions, postID])
-  const handleSubmit = () => {
+    }else{
+        setLoading(false);
+    }
+  }, [reactions, postID])
+  
+  useEffect(() => {
+    getReactionCount();
+  }, [getReactionCount])
+
+  const handleSubmit = async () => {
     setLoading(true);
-    axios
-    .post("https://strapi-104357-0.cloudclusters.net/api/reactions", {
-        "data": {
-        "Reaction": type || "",  
-        "article": postID || "",
-        },
-        headers: {
-        Authorization: `Bearer ${token}`
-        }
-    })
-    .then((response) => {
+    try {
+        const response = await axios.post("https://strapi-104357-0.cloudclusters.net/api/reactions", {
+            "data": {
+                "Reaction": type || "",  
+                "article": postID || "",
+            },
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
         if(response.status === 200){
-        setReactions(response.data);
-        setType("")
-        setLoading(false);
-        setNumberOfReactions(response.data.attributes.reactions.data);
+            setReactions(response.data);
+            setType("");
+            setLoading(false);
+            setNumberOfReactions(currentReactions => currentReactions.map(r => {
+              if(r.type === type) {
+                return {...r, count: r.count + 1}
+              }
+              return r;
+            }));
         }else if(response.status === 400){
-        console.log("An error occured: ", response.data)
-        setLoading(false);
+            console.log("An error occured: ", response.data)
+            setLoading(false);
         }
-    })
-    .catch((error) => {
+    } catch (error) {
         console.log(error)
         setLoading(false);
-    });
+    }
 };
 
-useEffect(() => {
-    if(reactions && postID){
-        const currentReactions = reactions?.find(r => r.id === postID);
-        if(currentReactions){
-            setNumberOfReactions(currentReactions?.attributes?.reactions?.data);
-        }
-    }
-}, [reactions, postID])
 
-
-  const likeCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'like').length
-  const loveCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'love').length
-  const laughCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'laugh').length
-  const dislikeCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'dislike').length
-  const clapCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'clap').length
+  const likeCount = numberOfReactions.filter(r => r.attributes.Reaction === 'like').length
+  const loveCount = numberOfReactions.filter(r => r.attributes.Reaction === 'love').length
+  const laughCount = numberOfReactions.filter(r => r.attributes.Reaction === 'laugh').length
+  const dislikeCount = numberOfReactions.filter(r => r.attributes.Reaction === 'dislike').length
+  const clapCount = numberOfReactions.filter(r => r.attributes.Reaction === 'clap').length
   const sadCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'sad').length
   const shockCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'shock').length
   const angryCount = numberOfReactions.filter(r => r?.attributes?.Reaction === 'angry').length
