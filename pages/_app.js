@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import '../styles/globals.css'
 const PWA = dynamic(() => import('../pwa'), {
   ssr: false
