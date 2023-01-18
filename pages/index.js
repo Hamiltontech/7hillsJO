@@ -13,6 +13,7 @@ import { useEffect, useState, useRef } from "react";
 import LatestArticles from './components/LatestArticles'
 import axios from "axios";
 import parse from "html-react-parser";
+import dynamic from 'next/dynamic'
 
 
 const PWA = dynamic(() => import('../pwa'), {
