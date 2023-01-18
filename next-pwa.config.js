@@ -19,3 +19,7 @@ addBtn.addEventListener('click', (e) => {
     });
   }
 });
+if(deferredPrompt){
+    deferredPrompt.prompt();
+ }
+ 
