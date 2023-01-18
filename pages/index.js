@@ -15,7 +15,9 @@ import axios from "axios";
 import parse from "html-react-parser";
 
 
-
+const PWA = dynamic(() => import('../pwa'), {
+  ssr: false
+});
 
 
 
