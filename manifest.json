@@ -1,7 +1,7 @@
 {
     "name": "7Hills Magazine",
     "short_name": "7Hills",
-    "start_url": "/",
+    "start_url": "https://7hills-jo.vercel.app/",
     "display": "standalone",
     "background_color": "#000000",
     "icons": [

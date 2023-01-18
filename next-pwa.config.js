@@ -5,7 +5,7 @@ module.exports = {
       manifest: {
         name: '7Hills',
         short_name: '7Hills',
-        start_url: '/',
+        start_url: 'https://7hills-jo.vercel.app/',
         display: 'standalone',
         background_color: '#ffffff',
         theme_color: '#ffffff',
