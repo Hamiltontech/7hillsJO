@@ -54,7 +54,7 @@ export default function Home() {
       <MainHero data={data}/>
       <div id="add-to-home-screen">
   Add 7Hills Magazine to your home screen
-  <button id="add-button">Add</button>
+  <button id="add-button">Add to home screen</button>
 </div>
 
 
