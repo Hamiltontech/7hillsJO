@@ -13,6 +13,8 @@ const MainHero = ({ data }) => {
     {attributes: "", Title:"", Abstract:"", Slug:""},
   ]
 
+
+  console.log(ar)
   return (
     <div className="w-full pt-[100px] font-blinker">
 

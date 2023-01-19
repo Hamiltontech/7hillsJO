@@ -25,6 +25,15 @@ a {
   }
 } */
 
+#installInstructions {
+  display: none
+}
+@media (display-mode: browser) {
+  #installInstructions {
+    display: block
+  }
+}
+
 html {
   scroll-behavior: smooth
 
