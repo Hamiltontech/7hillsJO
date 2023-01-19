@@ -38,7 +38,7 @@ const ArticleReactions = ({ data, postID, setReactions, reactions: rawReactions,
             }
         });
         if(response.status === 200){
-            setReactions(response.data);
+            // setReactions(response.data);
             setType("");
             setLoading(false);
             setNumberOfReactions(currentReactions => currentReactions.map(r => {
@@ -69,8 +69,6 @@ const ArticleReactions = ({ data, postID, setReactions, reactions: rawReactions,
 
 
 
-  
-
     if (error) {
         return <p>An error occured: {error.message}</p>
     }
@@ -82,7 +80,9 @@ const ArticleReactions = ({ data, postID, setReactions, reactions: rawReactions,
     return (
         <div className="grid place-items-center text-light/80 mt-10">
             <h1 className="font-bold">What do you think?</h1>
-            <h1 className="font-extralight">Number of Responses</h1>
+
+            
+            <h1 className="font-extralight">{data?.attributes?.reactions?.data?.length} Responses</h1>
             {/* <div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4"> */}
             {/* <form> */}
             {/* <div className="reaction-buttons">

@@ -2,6 +2,7 @@
     "theme_color": "#090302",
     "background_color": "#DC2E23",
     "display": "fullscreen",
+    "id": "/",
     "scope": "/",
     "start_url": "/",
     "name": "7hills",
