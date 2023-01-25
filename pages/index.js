@@ -13,7 +13,7 @@ import { useEffect, useState, useRef } from "react";
 import LatestArticles from "./components/LatestArticles";
 import axios from "axios";
 import parse from "html-react-parser";
-
+import AddToHomeScreenButton from './components/AddToHomeScreenButton';
 import Search from "./components/Search";
 
 const PWA = dynamic(() => import("../pwa"), {
