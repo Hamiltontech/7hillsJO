@@ -40,7 +40,7 @@ const AddToHomeScreenButton = () => {
   return (
     <button onClick={handleAddToHomeScreenClick}>
        <spna className="mx-3 flex text-xs ">Click
-          <div className="rounded-full p-1 hover:bg-red cursor-pointer ease-in-out duration-150"><IoShareOutline size={25} /></div>
+          <div className="rounded-full p-1 hover:bg-white cursor-pointer ease-in-out duration-150"><IoShareOutline size={25} /></div>
         </spna>
     </button>
   );
