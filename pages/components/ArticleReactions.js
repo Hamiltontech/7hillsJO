@@ -20,7 +20,7 @@
 //         setLoading(false);
 //     }
 //   }, [reactions, postID])
-  
+
 //   useEffect(() => {
 //     getReactionCount();
 //   }, [getReactionCount])
@@ -81,7 +81,7 @@
 //         <div className="grid place-items-center text-light/80 mt-10">
 //             <h1 className="font-bold">What do you think?</h1>
 
-            
+
 //             <h1 className="font-extralight">{data?.attributes?.reactions?.data?.length} Responses</h1>
 
 
@@ -203,41 +203,151 @@ import axios from 'axios'
 
 const ArticleReactions = ({ data, postID, error, setError, type, setType }) => {
 
-  // let tot = data?.attributes?.reactions?.data?.length
-  const [total, setTotal ] = useState(0) 
+  const [total, setTotal] = useState(0)
   const [click, setClick] = useState(false)
-  const [ Reactions, setReactions ] = useState([])
-  
+  const [Reactions, setReactions] = useState([])
 
-  // console.log(data)
-  //     useEffect(()=>{
-  //           setTotal(data?.attributes?.reactions?.data?.length)
-  //     }, [])
-  
-  console.log(total)
-  
-  const handleReact = ()=>{
-      axios.post("https://strapi-104357-0.cloudclusters.net/api/reactions", {
-          "data": {
-              "Reaction": 'like' ,  
-              "article": postID ,
-          },
-      }).then((response)=>{
-        console.log(response)
-      })
+
+  console.log(data)
+
+  const handleReact = () => {
+    axios.post("https://strapi-104357-0.cloudclusters.net/api/reactions", {
+      "data": {
+        "Reaction": 'like',
+        "article": postID,
+      },
+    }).then((response) => {
+      console.log(response)
+    })
   }
-  
-    return (
-      <div>
-  
-          {click? <h1 className='text-blackk/20'>Click me</h1> : <button onClick={()=>{setTotal(total + 1); setClick(true); handleReact()}}>Click me</button> }
-          
-          {/* here will be the value coming from backend */}
-          {/* <h1>{total}</h1> */}
-          <h1>{data?.attributes?.reactions?.data?.length + total}</h1>
+
+  return (
+    <div>
+       <div className="grid place-items-center text-light/80 mt-10">
+          <h1 className="font-bold">What do you think?</h1>
+            <h1 className="font-extralight">{data?.attributes?.reactions?.data?.length + total} Responses</h1>
+        </div>
+      <div className="grid grid-cols-2 lg:grid-cols-7 gap-2 mt-4">
+
+
+      
+
+
+        {/* like */}
+        <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+          <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/upvote-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
+        </div>
+
+
+        {/* {click ? <h1 className='text-blackk/20'>Click me</h1> : <button onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>Click me</button>}
+        <h1>{data?.attributes?.reactions?.data?.length + total}</h1> */}
+
+
+        {/* love */}
+        <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+          <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+            <img
+              src={
+                "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/love-512x512.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
+        </div>
+
+
+        {/* laugh */}
+        <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+          <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+            <img
+              src={
+                "https://cdn-icons-png.flaticon.com/512/1933/1933576.png"
+              }
+              width={45}
+              height={40}
+              className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+            />
+          </button>
+          {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
+        </div>
+
+      {/* shock */}
+      <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+        <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+          <img
+            src={
+              "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/surprised-512x512.png"
+            }
+            width={45}
+            height={40}
+            className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+          />
+        </button>
+        {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
       </div>
-    )
-  }
+
+
+      {/* angry */}
+      <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+        <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+          <img
+            src={
+              "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/angry-512x512.png"
+            }
+            width={45}
+            height={40}
+            className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+          />
+        </button>
+        {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
+      </div>
+
+      {/* clapping */}
+      <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+        <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+          <img
+            src={
+              "https://cdn-icons-png.flaticon.com/512/1629/1629881.png"
+            }
+            width={45}
+            height={40}
+            className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+          />
+        </button>
+        {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
+      </div>
+
+      {/* sad */}
+      <div className="   rounded-full flex justify-between items-center px-2 py-1  ">
+        <button type="button" onClick={() => { setTotal(total + 1); setClick(true); handleReact() }}>
+          <img
+            src={
+              "https://c.disquscdn.com/next/current/publisher-admin/assets/img/emoji/sad-512x512.png"
+            }
+            width={45}
+            height={40}
+            className="hover:scale-110 ease-in-out duration-150 cursor-pointer"
+          />
+        </button>
+        {/* <h1 className="px-3 font-semibold">{data?.attributes?.reactions?.data?.length + total}</h1> */}
+      </div>
+    </div>
+    </div>
+  )
+}
 
 
 export default ArticleReactions
