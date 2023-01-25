@@ -14,7 +14,7 @@ import LatestArticles from "./components/LatestArticles";
 import axios from "axios";
 import parse from "html-react-parser";
 import dynamic from "next/dynamic";
-import AddToHomeScreenButton from '../pages/components/AddToHomeScreenButton';
+import AddToHomeScreenButton from "../pages/components/AddToHomeScreenButton";
 import Search from "./components/Search";
 
 const PWA = dynamic(() => import("../pwa"), {
@@ -25,7 +25,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [spotify, setSpotify] = useState([]);
   const [searchPage, setSearchPage] = useState(false);
-  const [ search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -49,15 +49,28 @@ export default function Home() {
       });
   }, []);
 
+  const Home = () => {
+    return (
+      <div>
+        <AddToHomeScreenButton />
+      </div>
+    );
+  };
+
   return (
     <div>
       <title>7Hills</title>
       <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
-      <Header searchPage={searchPage} setSearchPage={setSearchPage} search={search} setSearch={setSearch}/>
+      <Header
+        searchPage={searchPage}
+        setSearchPage={setSearchPage}
+        search={search}
+        setSearch={setSearch}
+      />
 
       {searchPage ? (
         <>
-        <Search search={search} data={data}/>
+          <Search search={search} data={data} />
         </>
       ) : (
         <>
