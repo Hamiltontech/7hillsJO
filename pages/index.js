@@ -37,15 +37,17 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    if (isClient) {
-      window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    }
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     return () => {
-      if (isClient) {
-        window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      }
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
-  }, [isClient]);
+  }, []);
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
 
 
   console.log(data)
