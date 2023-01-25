@@ -36,18 +36,18 @@ export default function Home() {
     })
   }, [])
 
-  useEffect(() => {
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, []);
-  useEffect(() => {
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  //   return () => {
+  //     window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  //   };
+  // }, []);
+  // useEffect(() => {
+  //   window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  //   return () => {
+  //     window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  //   };
+  // }, []);
 
 
   console.log(data)

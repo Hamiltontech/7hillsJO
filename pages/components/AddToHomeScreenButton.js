@@ -21,6 +21,7 @@ const AddToHomeScreenButton = () => {
       });
     }
   };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
