@@ -131,7 +131,6 @@ const handleClick =()=>{
         <>
           <MainHero data={data} />
          
-
           {/* Home page main section */}
           <div className="h-screen max-w-full pt-2 text-white bg-red font-blinker">
             <div className="w-full p-10 bg-blackk">
