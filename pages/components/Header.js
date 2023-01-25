@@ -16,16 +16,16 @@ import { useRouter } from 'next/router'
 import Search from "./Search";
 
 
-const Header = () => {
+const Header = ({searchPage, setSearchPage, search, setSearch}) => {
 
-  const router = useRouter()
+
   // for showing the menu on mobile view
   const [menu, setMenu] = useState(false)
   // for rendering the categories component
   const [categories, setCategories] = useState(false)
   // for the search bar
-  const [searchPage, setSearchPage] = useState(false)
-const [ search, setSearch] = useState("")
+
+
 
   return (
     <div className="fixed w-full h-[110px] z-[100] bg-red shadow-xl font-blinker">
@@ -60,10 +60,8 @@ const [ search, setSearch] = useState("")
                {/* search bar */}
            <div className="hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex hover:text-yellow">
            
-        
             <input className="mb-10 outline-0 font-light bg-white/0 border-b" onChange={(e)=>setSearch(e.target.value)} />
-            <button className="mb-10 mx-1 text-sm font-light p-1 hover:scale-110 ease-in-out duration-150" onClick={()=>setSearchPage(!searchPage)}><ImSearch className="mx-1" size={20} /> </button>
-           
+            <button className="mb-10 mx-1 text-sm font-light p-1 hover:scale-110 ease-in-out duration-150" onClick={()=>setSearchPage(true)}><ImSearch className="mx-1" size={20} /> </button>
           </div>
           </ul>
           
@@ -74,7 +72,7 @@ const [ search, setSearch] = useState("")
             {/* home */}
             <div className="flex duration-150 ease-in-out hover:text-yellow">
               <AiFillHome className="mt-1 mr-1 " />
-              <Link href="/">
+              <Link href="/" onClick={()=>setSearchPage(false)}>
                 <li className="mr-3 uppercase">Home </li>
               </Link>
               <span className="mr-2">|</span>
@@ -130,13 +128,10 @@ const [ search, setSearch] = useState("")
 
       {/* menu section */}
       {
-        menu&&<Menu setMenu={setMenu} />
+        menu&&<Menu setMenu={setMenu} setSearchPage={setSearchPage}/>
       }
 
-      
-{
-        searchPage&&<Search setSearchPage={setSearchPage} search={search} setSearch={setSearch}/>
-      }
+    
     </div>
   );
 };

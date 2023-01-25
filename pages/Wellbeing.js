@@ -24,7 +24,7 @@ const Wellbeing = () => {
 
   return (
     <div className="w-full h-screen font-blinker ">
-      <Header />
+      <Header /> 
       <div className="w-full pt-[100px] font-blinker ">
       <div className=" h-[500px] w-full flex justify-between">
         <div className='lg:bg-fixed bg-cover bg-[url("https://images.unsplash.com/photo-1617419250411-98aa962b070f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&w=1240")] lg:w-full w-full'>

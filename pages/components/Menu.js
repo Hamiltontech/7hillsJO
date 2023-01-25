@@ -71,7 +71,7 @@ const Categories = [
 ];
 
 
-const Menu = ({ setMenu }) => {
+const Menu = ({ setMenu, setSearchPage }) => {
   const [categories, setCategories] = useState(false);
 
   return (
@@ -109,7 +109,7 @@ const Menu = ({ setMenu }) => {
                     <div
                     key={key}
                       className="flex justify-around w-full h-full font-bold uppercase bg-cover border cursor-pointer hover:bg-white"
-                      style={{ backgroundImage: `url(${item.background})` }}
+                      style={{ backgroundImage: `url(${item.background})`}}
                     >
                       <div className="w-full h-full py-6 text-lg text-white bg-blackk/80">
                       {item.name}
