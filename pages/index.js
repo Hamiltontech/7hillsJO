@@ -14,13 +14,12 @@ import LatestArticles from './components/LatestArticles'
 import axios from "axios";
 import parse from "html-react-parser";
 import dynamic from 'next/dynamic'
-
+import AddToHomeScreenButton from '../pages/components/AddToHomeScreenButton';
 
 
 const PWA = dynamic(() => import('../pwa'), {
   ssr: false
 });
-
 
 
 export default function Home() {
@@ -37,6 +36,12 @@ export default function Home() {
     })
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
 
   console.log(data)
   useEffect(()=>{
@@ -47,7 +52,14 @@ export default function Home() {
     })
   }, [])
 
-
+  const Home = () => {
+    return (
+      <div>
+        <AddToHomeScreenButton />
+      </div>
+    );
+  };
+  
   return (
     <div>
       <title>7Hills</title>
