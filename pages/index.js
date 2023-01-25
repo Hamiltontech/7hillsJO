@@ -49,6 +49,7 @@ export default function Home() {
       });
   }, []);
 
+
   const Home = () => {
     return (
       <div>
@@ -57,16 +58,16 @@ export default function Home() {
     );
   };
 
+
   return (
     <div>
+
       <title>7Hills</title>
       <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
-      <Header
-        searchPage={searchPage}
-        setSearchPage={setSearchPage}
-        search={search}
-        setSearch={setSearch}
-      />
+
+
+      <Header searchPage={searchPage} setSearchPage={setSearchPage} search={search} setSearch={setSearch}/>
+
 
       {searchPage ? (
         <>
@@ -78,7 +79,8 @@ export default function Home() {
           <div id="add-to-home-screen">
             Add 7Hills Magazine to your home screen
             <AddToHomeScreenButton />
-          </div>
+</div>
+
 
           {/* Home page main section */}
           <div className="h-screen max-w-full pt-2 text-white bg-red font-blinker">
