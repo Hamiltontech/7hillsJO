@@ -7,13 +7,10 @@ import ReactMarkdown from "react-markdown";
 
 
 const ArticleSection = ({ data, comment, setComment, postID }) => {
-
-console.log(data)
 // reactions
 const [reactions, setReactions] = useState(null);
 const [error, setError] = useState(null);
 const [type, setType] = useState("")
-
 
 useEffect(() => {
   axios.get(`https://strapi-104357-0.cloudclusters.net/api/articles/${postID}?populate=*`)
@@ -98,9 +95,7 @@ useEffect(()=>{
       <div className="w-full flex justify-center ">
       <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/>
       </div>
-
       
-
       {/* article comments section */}
       <div class="flex h-full bg-gray-800 justify-center items-center">
         <div class="  p-2 pt-4 rounded  w-full lg:mx-20">
@@ -150,7 +145,6 @@ useEffect(()=>{
                  
                       {time}
                       {item?.attributes?.createdAt.slice(13,16)} 
-                    
                       </span>
                       
                        {/* {item?.attributes?.createdAt.slice(0,10)} */}
