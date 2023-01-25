@@ -69,7 +69,9 @@ export default function Home() {
   
   return (
     <div>
+
       <title>7Hills</title>
+      <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
       <Header />
   
       <MainHero data={data}/>
