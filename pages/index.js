@@ -16,6 +16,8 @@ import parse from "html-react-parser";
 import dynamic from "next/dynamic";
 import AddToHomeScreenButton from "../pages/components/AddToHomeScreenButton";
 import Search from "./components/Search";
+import {IoShareOutline} from "react-icons/io5"
+import {AiFillCloseCircle} from "react-icons/ai"
 
 const PWA = dynamic(() => import("../pwa"), {
   ssr: false,
@@ -49,7 +51,6 @@ export default function Home() {
       });
   }, []);
 
-
   const Home = () => {
     return (
       <div>
@@ -58,16 +59,28 @@ export default function Home() {
     );
   };
 
+  function closePopup() {
+     document.getElementById('popup').style.display = 'none';
+}
 
   return (
-    <div>
-
+    <div className="font-blinker">
       <title>7Hills</title>
       <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
+      <Header
+        searchPage={searchPage}
+        setSearchPage={setSearchPage}
+        search={search}
+        setSearch={setSearch}
+      />
 
-
-      <Header searchPage={searchPage} setSearchPage={setSearchPage} search={search} setSearch={setSearch}/>
-
+      <div id="popup" className=" bg-blackk p-3 fixed flex justify-center top-[90%] left-[40%] rounded-full border border-white text-white">
+       
+        <h1 className="mt-1 ml-2" id="add-to-home-screen">
+        Add 7Hills to your home screen!</h1> 
+        <AddToHomeScreenButton />
+        <button className="-mt-12 hover:text-white/80 cursor-pointer ease-in-out duration-150" onClick={closePopup}> <AiFillCloseCircle size={20} /></button>
+      </div>
 
       {searchPage ? (
         <>
@@ -76,11 +89,7 @@ export default function Home() {
       ) : (
         <>
           <MainHero data={data} />
-          <div id="add-to-home-screen">
-            Add 7Hills Magazine to your home screen
-            <AddToHomeScreenButton />
-</div>
-
+         
 
           {/* Home page main section */}
           <div className="h-screen max-w-full pt-2 text-white bg-red font-blinker">
