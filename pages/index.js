@@ -16,6 +16,7 @@ import parse from "html-react-parser";
 import dynamic from 'next/dynamic'
 
 
+
 const PWA = dynamic(() => import('../pwa'), {
   ssr: false
 });
