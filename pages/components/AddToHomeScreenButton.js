@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { useOnClient } from 'next-on-client';
+import React, { useEffect, useState } from 'react';
 
 const AddToHomeScreenButton = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const isClient = useOnClient();
 
   const handleBeforeInstallPrompt = (e) => {
     e.preventDefault();
@@ -23,16 +21,25 @@ const AddToHomeScreenButton = () => {
       });
     }
   };
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      }
+    };
+  }, []);
 
-  if (isClient) {
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    return (
-      <button onClick={handleAddToHomeScreenClick}>
-        Add to Home Screen
-      </button>
-    );
+  if (typeof window === 'undefined') {
+    return null;
   }
-  return null;
+  return (
+    <button onClick={handleAddToHomeScreenClick}>
+      Add to Home Screen
+    </button>
+  );
 };
 
 export default AddToHomeScreenButton;
