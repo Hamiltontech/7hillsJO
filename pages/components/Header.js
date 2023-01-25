@@ -11,20 +11,26 @@ import {IoVideocam} from 'react-icons/io5'
 import { useState } from "react";
 import CategoriesDropdown from "./CategoriesDropdown";
 import Menu from './Menu'
+import {ImSearch} from 'react-icons/im'
+import { useRouter } from 'next/router'
+import Search from "./Search";
 
 
 const Header = () => {
 
+  const router = useRouter()
   // for showing the menu on mobile view
   const [menu, setMenu] = useState(false)
-  
-
-      // for rendering the categories component
-      const [categories, setCategories] = useState(false)
-
+  // for rendering the categories component
+  const [categories, setCategories] = useState(false)
+  // for the search bar
+  const [searchPage, setSearchPage] = useState(false)
+const [ search, setSearch] = useState("")
 
   return (
     <div className="fixed w-full h-[110px] z-[100] bg-red shadow-xl font-blinker">
+
+
       <div className="flex items-center justify-between w-full h-full">
         {/* logo */}
 
@@ -35,12 +41,12 @@ const Header = () => {
 
           <ul className=" flex mt-10">
           {/* Categories */}
-          <div className={categories?`hidden text-xl font-extrabold text-yellow duration-150 ease-in-out lg:flex  `:`hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex  hover:text-yellow`}>
+          <div className={categories?`hidden text-xl font-extrabold text-yellow duration-150 ease-in-out lg:flex`:`hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex  hover:text-yellow`}>
             <AiFillAppstore className="mx-1 mt-1" />
             <button className="mb-10" onClick={()=>setCategories(!categories)}>
               <li className="mr-3 uppercase list-none">Categories </li>
             </button>
-            <span className="mr-2 "></span>
+            <span className="mr-2"></span>
           </div>
         
            {/* channel */}
@@ -50,6 +56,15 @@ const Header = () => {
               <li className="mr-5 uppercase list-none">Channel</li>
             </Link>
           </div> */}
+
+               {/* search bar */}
+           <div className="hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex hover:text-yellow">
+           
+        
+            <input className="mb-10 outline-0 font-light bg-white/0 border-b" onChange={(e)=>setSearch(e.target.value)} />
+            <button className="mb-10 mx-1 text-sm font-light p-1 hover:scale-110 ease-in-out duration-150" onClick={()=>setSearchPage(!searchPage)}><ImSearch className="mx-1" size={20} /> </button>
+           
+          </div>
           </ul>
           
           </div>
@@ -117,7 +132,11 @@ const Header = () => {
       {
         menu&&<Menu setMenu={setMenu} />
       }
+
       
+{
+        searchPage&&<Search setSearchPage={setSearchPage} search={search} setSearch={setSearch}/>
+      }
     </div>
   );
 };
