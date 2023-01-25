@@ -14,7 +14,7 @@ import LatestArticles from "./components/LatestArticles";
 import axios from "axios";
 import parse from "html-react-parser";
 import dynamic from "next/dynamic";
-
+import AddToHomeScreenButton from '../pages/components/AddToHomeScreenButton';
 import Search from "./components/Search";
 
 const PWA = dynamic(() => import("../pwa"), {
@@ -52,6 +52,7 @@ export default function Home() {
   return (
     <div>
       <title>7Hills</title>
+      <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
       <Header searchPage={searchPage} setSearchPage={setSearchPage} search={search} setSearch={setSearch}/>
 
       {searchPage ? (
@@ -63,7 +64,7 @@ export default function Home() {
           <MainHero data={data} />
           <div id="add-to-home-screen">
             Add 7Hills Magazine to your home screen
-            <button id="add-button">Add to home screen</button>
+            <AddToHomeScreenButton />
           </div>
 
           {/* Home page main section */}
