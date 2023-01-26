@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+
 const Art = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
