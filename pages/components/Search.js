@@ -27,10 +27,15 @@ const Search = ({ search, data }) => {
         });
         setTimeout(function() {
           document.getElementById('mydiv').style.display = 'none';
-      }, 2000)
+      }, 500)
     }
 
   return (
+    <>    
+     <div id="mydiv" style={{"display": "none"}} className="h-screen bg-red w-full flex justify-center relative">
+    <h1 className="text-center lg:text-7xl text-white font-extrabold flex justify-center lg:pt-[500px]">Copied!</h1>
+      </div>
+
     <div className="pt-[120px] font-blinker">
 
       <div className=" lg:flex justify-between pt-10 h-screen">
@@ -123,7 +128,7 @@ const Search = ({ search, data }) => {
           <h1 className="text-3xl font-bold lg:mx-10">Hot Deals</h1>
           <hr className="mx-2 text-blackk/20 mt-2"/>
           <div className="grid mt-5">
-          <div id="mydiv" style={{"display": "none"}}>Copied!</div>
+          {/* <div id="mydiv" style={{"display": "none"}}>Copied!</div> */}
             {deals?.map((item, key) => {
               if (item?.attributes?.Brand.toLowerCase().includes(search) || item?.attributes?.Decsription.toLowerCase().includes(search)) {
                 return (
@@ -166,6 +171,8 @@ const Search = ({ search, data }) => {
    
       </div>
     </div>
+    </>
+
   );
 };
 
