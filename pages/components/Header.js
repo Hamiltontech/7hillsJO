@@ -60,19 +60,19 @@ const Header = ({ searchPage, setSearchPage, search, setSearch }) => {
           </div> */}
 
             {/* search bar */}
-            <div className="hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex hover:text-yellow">
-              <button
-                className="mb-10 mx-1 text-sm font-light p-1 hover:scale-110 ease-in-out duration-150"
-                onClick={() => setSearchPage(true)}
-              >
-                <ImSearch className="mx-1" size={20} />
-              </button>
+            <div className=" lg:text-xl font-extrabold text-white duration-150 ease-in-out flex hover:text-yellow ">
               {searchPage && (
                 <input
                   className="mb-10 outline-0 font-light bg-white/0 border-b"
                   onChange={(e) => setSearch(e.target.value)}
                 />
               )}
+              <button
+                className="mb-10 mx-1 text-sm font-light p-1 hover:scale-110 ease-in-out duration-150"
+                onClick={() => setSearchPage(true)}
+              >
+                <ImSearch className="mx-1" size={20} />
+              </button>
             </div>
           </ul>
         </div>

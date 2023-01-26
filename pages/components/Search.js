@@ -7,7 +7,18 @@ import Footer from "./Footer";
 const Search = ({ search, data }) => {
     const [ deals, setDeals ] = useState([])
     const [ quizzes, setQuizzes ] = useState([])
+    const [articles, setArticles] = useState([])
 
+    useEffect(() => {
+      axios
+        .get("https://strapi-104357-0.cloudclusters.net/api/articles")
+        .then((response) => {
+          setArticles(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, []);
 
     useEffect(()=>{
         axios.get("https://strapi-104357-0.cloudclusters.net/api/offers").then((response)=>{
@@ -44,7 +55,7 @@ const Search = ({ search, data }) => {
           <h1 className="text-3xl font-bold mx-2">Articles</h1>
 <hr className="mx-2 text-blackk/20 mt-2"/>
           <div className="grid mt-5">
-            {data?.map((item, key) => {
+            {articles?.map((item, key) => {
               if (item?.attributes?.Title.toLowerCase().includes(search)) {
                 return (
                   <>

@@ -19,10 +19,14 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 
 import { useRouter } from 'next/router'
+import Search from "./components/Search";
 
 const Contact = () => {
   const router = useRouter()
   const [thanks, setThanks] = useState(false);
+  const [searchPage, setSearchPage] = useState(false);
+  const [search, setSearch] = useState("");
+
   // function to handle the contact form
   function sendEmail(e) {
     e.preventDefault();
@@ -39,8 +43,18 @@ const Contact = () => {
 
   return (
     <div className="font-blinker h-full w-full">
-      <Header />
+      <Header 
+              searchPage={searchPage}
+              setSearchPage={setSearchPage}
+              search={search}
+              setSearch={setSearch}
+      />
 
+
+{searchPage ? (
+        <Search search={search} />
+      ) : (
+        <>
       <div id="contact" className="w-full lg:h-full bg pt-[100px]">
         <div className="w-full m-auto ">
           <div className="grid lg:grid-cols-5">
@@ -210,6 +224,7 @@ const Contact = () => {
       </div>
 
       <Footer />
+      </>)}
     </div>
   );
 };

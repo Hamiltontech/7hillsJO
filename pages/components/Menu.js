@@ -89,7 +89,7 @@ const Menu = ({ setMenu, setSearchPage }) => {
         <hr className="mb-20"/>
 
         {/* home */}
-        <Link href="/" onClick={()=>setMenu(false)}>
+        <Link href="/" onClick={()=>{setSearchPage(false); setMenu(false)}}>
           <h1 className="p-3 cursor-pointer hover:text-yellow">Home</h1>
         </Link>
 
@@ -129,22 +129,22 @@ const Menu = ({ setMenu, setSearchPage }) => {
         </Link> */}
 
         {/* quizzes */}
-        <Link href="/Quizzes" onClick={()=>setMenu(false)}>
+        <Link href="/Quizzes" onClick={()=>{setSearchPage(false); setMenu(false)}}>
           <h1 className="p-3 cursor-pointer hover:text-yellow">Quizzes</h1>
         </Link>
 
         {/* discounts */}
-        <Link href="/Discounts" onClick={()=>setMenu(false)}>
+        <Link href="/Discounts" onClick={()=>{setSearchPage(false); setMenu(false)}}>
           <h1 className="p-3 cursor-pointer hover:text-yellow">Hot deals</h1>
         </Link>
 
         {/* about */}
-        <Link href="/About" onClick={()=>setMenu(false)}>
+        <Link href="/About" onClick={()=>{setSearchPage(false); setMenu(false)}}>
           <h1 className="p-3 cursor-pointer hover:text-yellow">About Us</h1>
         </Link>
         
         {/* contact */}
-        <Link href="/Contact" onClick={()=>setMenu(false)}>
+        <Link href="/Contact" onClick={()=>{setSearchPage(false); setMenu(false)}}>
           <h1 className="p-3 cursor-pointer hover:text-yellow">Contact Us</h1>
         </Link>
       </div>
