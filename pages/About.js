@@ -8,12 +8,14 @@ import Vision from './components/Vision'
 import Mission from './components/Mission'
 import Search from './components/Search'
 import { useState } from 'react'
+import Layout from './components/Layout'
 
 const About = () => {
   const [searchPage, setSearchPage] = useState(false);
   const [search, setSearch] = useState("");
 
   return (
+    <Layout  >
     <div className='font-blinker'>
       <Header 
               searchPage={searchPage}
@@ -44,6 +46,7 @@ const About = () => {
       <Footer />
       </>)}
     </div>
+    </Layout>
   )
 }
 

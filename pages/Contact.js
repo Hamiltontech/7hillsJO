@@ -13,6 +13,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
 import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 import { IoLogoTiktok } from "react-icons/io5";
+import Layout from "./components/Layout";
 
 // for the contact form with emailjs
 import emailjs from "@emailjs/browser";
@@ -42,6 +43,7 @@ const Contact = () => {
   }
 
   return (
+    <Layout>
     <div className="font-blinker h-full w-full">
       <Header 
               searchPage={searchPage}
@@ -226,6 +228,7 @@ const Contact = () => {
       <Footer />
       </>)}
     </div>
+    </Layout>
   );
 };
 

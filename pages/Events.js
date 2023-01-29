@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Search from "./components/Search";
+import Layout from "./components/Layout";
 
 const Events = () => {
   const [data, setData] = useState([]);
@@ -26,6 +27,8 @@ const Events = () => {
   }, []);
 
   return (
+    <Layout>
+
     <div className="w-full h-screen font-blinker ">
       <Header
         searchPage={searchPage}
@@ -96,6 +99,7 @@ const Events = () => {
         </>
       )}
     </div>
+    </Layout>
   );
 };
 

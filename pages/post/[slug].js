@@ -9,6 +9,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import ArticleAd from "../components/ArticleAd";
 import Search from "../components/Search";
+import Layout from "../components/Layout";
 
 const Post = () => {
   const [data, setData] = useState({});
@@ -50,6 +51,7 @@ useEffect(()=>{
 
 
   return (
+    <Layout  >
     <div className="w-full h-screen">
       <Header 
               searchPage={searchPage}
@@ -94,6 +96,7 @@ useEffect(()=>{
       </>
       )}
     </div>
+    </Layout>
   );
 };
 

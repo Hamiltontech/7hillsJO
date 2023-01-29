@@ -19,6 +19,7 @@ import Search from "./components/Search";
 import {IoShareOutline} from "react-icons/io5"
 import {AiFillCloseCircle} from "react-icons/ai"
 import Image from "next/image";
+import Layout from "./components/Layout";
 
 
 const PWA = dynamic(() => import("../pwa"), {
@@ -71,6 +72,8 @@ const handleClick =()=>{
 }
 
   return (
+    <Layout>
+
     <div className="font-blinker">
       <title>7Hills</title>
       <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
@@ -151,6 +154,8 @@ const handleClick =()=>{
                 </h1>
               </div>
               <hr />
+
+              
               <div className="h-[500px] align-middle overflow-hidden mt-5">
                 <TopQuizzes />
               </div>
@@ -172,5 +177,6 @@ const handleClick =()=>{
         </>
       )}
     </div>
+    </Layout>
   );
 }

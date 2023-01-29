@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Search from "./components/Search";
+import Layout from "./components/Layout";
 
 const Travel = () => {
   const [data, setData] = useState([]);
@@ -27,6 +28,7 @@ const Travel = () => {
 
 
   return (
+    <Layout>
     <div className="w-full h-screen font-blinker ">
       <Header
               searchPage={searchPage}
@@ -98,6 +100,7 @@ const Travel = () => {
       </>
          )}
     </div>
+    </Layout>
   );
 };
 

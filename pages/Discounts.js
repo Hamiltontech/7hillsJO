@@ -6,6 +6,7 @@ import DiscountCards from "./components/DiscountCards";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Search from "./components/Search";
+import Layout from "./components/Layout";
 
 const Discounts = () => {
   const [data, setData] = useState([]);
@@ -38,6 +39,8 @@ const Discounts = () => {
   }, []);
 
   return (
+    <Layout>
+
     <div className="w-full h-screen font-blinker">
       <Header
         searchPage={searchPage}
@@ -71,6 +74,7 @@ const Discounts = () => {
         </>
       )}
     </div>
+    </Layout>
   );
 };
 

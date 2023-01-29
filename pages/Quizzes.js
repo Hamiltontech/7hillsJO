@@ -6,6 +6,7 @@ import QuizzesCards from "./components/QuizzesCards";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Search from "./components/Search";
+import Layout from "./components/Layout";
 
 const Quizzes = () => {
   const [quizzes, setQuizzes] = useState([]);
@@ -33,6 +34,8 @@ const Quizzes = () => {
   }, []);
 
   return (
+    <Layout>
+
     <div className="w-full h-screen font-blinker">
       <Header
         searchPage={searchPage}
@@ -67,6 +70,7 @@ const Quizzes = () => {
         </>
       )}
     </div>
+    </Layout>
   );
 };
 
