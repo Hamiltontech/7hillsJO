@@ -25,6 +25,7 @@ useEffect(() => {
 
   const [comments, setComments] = useState([])
   const [name, setName] = useState("")
+  const[commented, setCommented] = useState(false)
 
   const handleSubmit = () =>{
     axios.post("https://strapi-104357-0.cloudclusters.net/api/comments", {
@@ -35,6 +36,7 @@ useEffect(() => {
       }
     }).then((res)=>{
       console.log(res)
+      setCommented(!commented)
       // window.location.reload()
     }).catch((error)=>{
       console.log(error)
@@ -47,7 +49,7 @@ useEffect(()=>{
   }).catch((error)=>{
     console.log(error)
   })
-}, [comment])
+}, [commented])
 
 
   return (
@@ -142,7 +144,7 @@ useEffect(()=>{
                       <>
                       <div className="lg:flex justify-between lg:mx-10 py-5"> 
                       <div className="flex"><h1 className="font-bold mt-2 text-light">{item?.attributes?.name} </h1>
-                      <h1 className="my-2 mx-2">{item?.attributes?.comment || comment }</h1></div>
+                      <h1 className="my-2 mx-2">{item?.attributes?.comment }</h1></div>
                       <h1 className="my-2 text-xs"><span className="text-xs"><span className="mr-1">Posted at</span>
                  
                       {time}

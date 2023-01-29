@@ -59,7 +59,7 @@ const Quizzes = () => {
             <div className="gap-5 p-10 lg:flex">
               <div className="lg:w-[80%] ">
                 {/* <DiscountCards  data={data} /> */}
-                <QuizzesCards quizzes={quizzes} />
+                <QuizzesCards quizzes={quizzes} /> 
               </div>
               <div className="lg:w-[20%] h-full hidden lg:block ml-20">
                 <CategoryAds ad={ad} />
