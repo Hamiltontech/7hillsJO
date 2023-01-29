@@ -56,7 +56,7 @@ const Categories = [
   {
     name: "Wellness",
     background: "https://cdn-icons-png.flaticon.com/512/2382/2382461.png",
-    path: "/Wellbeing"
+    path: "/Wellness"
   },
   {
     name: "Technology",

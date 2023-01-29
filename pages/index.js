@@ -34,7 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("https://strapi-104357-0.cloudclusters.net/api/articles")
+      .get("https://strapi-104357-0.cloudclusters.net/api/articles?populate=*")
       .then((response) => {
         setData(response.data.data);
       })

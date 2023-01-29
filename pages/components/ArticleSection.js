@@ -35,7 +35,7 @@ useEffect(() => {
       }
     }).then((res)=>{
       console.log(res)
-      window.location.reload()
+      // window.location.reload()
     }).catch((error)=>{
       console.log(error)
     })
@@ -47,7 +47,7 @@ useEffect(()=>{
   }).catch((error)=>{
     console.log(error)
   })
-}, [])
+}, [comment])
 
 
   return (
@@ -90,8 +90,10 @@ useEffect(()=>{
         </p>
       </div>
       <hr className="text-[#c0c0c0]" />
-      {/* <Comment /> */}
 
+{/* author */}
+
+      {/* <Comment /> */}
       <div className="w-full flex justify-center ">
       <ArticleReactions data={data} postID={postID} reactions={reactions} setReactions={setReactions} error={error} setError={setError} type={type} setType={setType}/>
       </div>
@@ -140,7 +142,7 @@ useEffect(()=>{
                       <>
                       <div className="lg:flex justify-between lg:mx-10 py-5"> 
                       <div className="flex"><h1 className="font-bold mt-2 text-light">{item?.attributes?.name} </h1>
-                      <h1 className="my-2 mx-2">{item?.attributes?.comment}</h1></div>
+                      <h1 className="my-2 mx-2">{item?.attributes?.comment || comment }</h1></div>
                       <h1 className="my-2 text-xs"><span className="text-xs"><span className="mr-1">Posted at</span>
                  
                       {time}

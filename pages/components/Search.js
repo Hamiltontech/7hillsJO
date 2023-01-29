@@ -56,7 +56,7 @@ const Search = ({ search, data }) => {
 <hr className="mx-2 text-blackk/20 mt-2"/>
           <div className="grid mt-5">
             {articles?.map((item, key) => {
-              if (item?.attributes?.Title.toLowerCase().includes(search)) {
+              if (item?.attributes?.Title.toLowerCase().includes(search.toLowerCase())) {
                 return (
                   <>
                       <div
@@ -97,7 +97,7 @@ const Search = ({ search, data }) => {
           <hr className="mx-2 text-blackk/20 mt-2"/>
           <div className="grid mt-5">
             {quizzes?.map((item, key) => {
-              if (item?.attributes?.Name.toLowerCase().includes(search) || item?.attributes?.Description.toLowerCase().includes(search)) {
+              if (item?.attributes?.Name.toLowerCase().includes(search.toLowerCase()) || item?.attributes?.Description.toLowerCase().includes(search.toLowerCase())) {
                 return (
                   <>
                     <Link href={item?.attributes?.URL}>
@@ -141,7 +141,7 @@ const Search = ({ search, data }) => {
           <div className="grid mt-5">
           {/* <div id="mydiv" style={{"display": "none"}}>Copied!</div> */}
             {deals?.map((item, key) => {
-              if (item?.attributes?.Brand.toLowerCase().includes(search) || item?.attributes?.Decsription.toLowerCase().includes(search)) {
+              if (item?.attributes?.Brand.toLowerCase().includes(search.toLowerCase()) || item?.attributes?.Decsription.toLowerCase().includes(search.toLowerCase())) {
                 return (
                   <>
                       <div
