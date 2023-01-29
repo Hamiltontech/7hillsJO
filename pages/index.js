@@ -125,7 +125,7 @@ const handleClick =()=>{
 
       {searchPage ? (
         <>
-          <Search search={search} data={data} />
+          <Search search={search} data={data} setSearchPage={setSearchPage}/>
         </>
       ) : (
         <>

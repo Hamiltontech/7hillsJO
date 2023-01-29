@@ -52,7 +52,7 @@ const Contact = () => {
 
 
 {searchPage ? (
-        <Search search={search} />
+        <Search search={search} setSearchPage={setSearchPage}/>
       ) : (
         <>
       <div id="contact" className="w-full lg:h-full bg pt-[100px]">

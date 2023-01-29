@@ -8,7 +8,7 @@ import ShareButtons from "../components/ShareButtons";
 import axios from "axios";
 import { useRouter } from "next/router";
 import ArticleAd from "../components/ArticleAd";
-
+import Search from "../components/Search";
 
 const Post = () => {
   const [data, setData] = useState({});
@@ -16,6 +16,9 @@ const Post = () => {
   const { slug } = router.query;
   const [postID, setPostID] = useState("");
   const [comment, setComment] = useState("")
+
+  const [searchPage, setSearchPage] = useState(false);
+  const [search, setSearch] = useState("");
   
   // from strapi
   useEffect(() => {
@@ -37,7 +40,6 @@ useEffect(()=>{
 })
 
 
-console.log(data)
 
   function myFunction() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -49,7 +51,17 @@ console.log(data)
 
   return (
     <div className="w-full h-screen">
-      <Header />
+      <Header 
+              searchPage={searchPage}
+              setSearchPage={setSearchPage}
+              search={search}
+              setSearch={setSearch}
+      />
+
+{searchPage ? (
+        <Search search={search} setSearchPage={setSearchPage} />
+      ) : (
+        <>
       <div className="progress-container h-[120px] bg-white fixed">
     <div className="progress-barb h-[120px] bg-yellow w-0" id="myBar"></div>
   </div>
@@ -79,6 +91,8 @@ console.log(data)
         </div>
         {/* <Footer /> */}
       </div>
+      </>
+      )}
     </div>
   );
 };

@@ -24,7 +24,7 @@ const About = () => {
 
               
       {searchPage ? (
-        <Search search={search} />
+        <Search search={search} setSearchPage={setSearchPage} />
       ) : (
         <>
         

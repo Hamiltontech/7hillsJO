@@ -36,7 +36,7 @@ const Movies = () => {
       />
 
 {searchPage ? (
-        <Search search={search} />
+        <Search search={search} setSearchPage={setSearchPage}/>
       ) : (
         <>
       <div className="w-full pt-[100px] font-blinker ">

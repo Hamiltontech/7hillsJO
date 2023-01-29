@@ -42,7 +42,7 @@ const Quizzes = () => {
       />
 
       {searchPage ? (
-        <Search search={search} />
+        <Search search={search} setSearchPage={setSearchPage}/>
       ) : (
         <>
           <div className="w-full h-full pt-[100px]">

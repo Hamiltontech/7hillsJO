@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import Footer from "./Footer";
+import {IoChevronBackCircleSharp} from 'react-icons/io5'
 
-const Search = ({ search, data }) => {
+const Search = ({ search, data , setSearchPage}) => {
     const [ deals, setDeals ] = useState([])
     const [ quizzes, setQuizzes ] = useState([])
     const [articles, setArticles] = useState([])
@@ -48,7 +49,9 @@ const Search = ({ search, data }) => {
       </div>
 
     <div className="pt-[120px] font-blinker">
-
+<div className="mx-10" onClick={()=>setSearchPage(false)}>
+<IoChevronBackCircleSharp size={40} className="hover:text-red ease-in-out duration-150 hover:scale-105 cursor-pointer"/>
+</div>
       <div className=" lg:flex justify-between pt-10 h-screen">
         {/* Articles search */}
         <div className="lg:w-[33.3%] lg:mx-10  ">
