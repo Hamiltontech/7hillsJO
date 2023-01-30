@@ -31,7 +31,7 @@ export default function Home() {
   const [searchPage, setSearchPage] = useState(false);
   const [search, setSearch] = useState("");
   const [popup, setPopup] = useState(false);
-  const [newsletter, setNewsletter] = useState(false);
+  const [newsletter, setNewsletter] = useState(true);
   const [email, setEmail] = useState("");
   const [subscription, setSubscription] = useState(false);
 
