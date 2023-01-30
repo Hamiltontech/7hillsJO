@@ -87,8 +87,9 @@ useEffect(()=>{
       <div className="py-2 lg:py-5">
         <p className="lg:max-w-[1400px] text-justify text-sm lg:text-lg max-w-[300px]">
         <div id="demo">
-          <ReactMarkdown  escapeHtml={true} children={data?.attributes?.Body} />
-       
+          <ReactMarkdown  escapeHtml={true}  >
+          {data?.attributes?.Body}
+            </ReactMarkdown>
 
       </div>   
         </p>
