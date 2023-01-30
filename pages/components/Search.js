@@ -102,7 +102,7 @@ const Search = ({ search, data , setSearchPage}) => {
               if (item?.attributes?.Name.toLowerCase().includes(search.toLowerCase()) || item?.attributes?.Description.toLowerCase().includes(search.toLowerCase())) {
                 return (
                   <>
-                    <Link href={item?.attributes?.URL}>
+                    <Link href={item?.attributes?.URL} target="_blank">
                       <div
                         key={key}
                         className="  p-3 lg:mx-20 mt-2 hover:bg-blackk/10 cursor-pointer ease-in-out duration-150"
