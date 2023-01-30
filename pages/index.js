@@ -70,19 +70,29 @@ export default function Home() {
      document.getElementById('popup').style.display = 'none';
 }
 
+const re =  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
 
 const handleSubscribe = () =>{
-  axios.post("https://strapi-104357-0.cloudclusters.net/api/subscriptions", {
-    "data":{
-      "Email" : email.toString() || "",
-    }
-  }).then((response)=>{
-    console.log(response)
-    setSubscription(true)
-  }).catch((error)=>{
-    console.log(error)
-  })
+  if(email.toLowerCase().match(re)){
+    axios.post("https://strapi-104357-0.cloudclusters.net/api/subscriptions", {
+      "data":{
+        "Email" : email.toString() || "",
+      }
+    }).then((response)=>{
+      console.log(response)
+      setSubscription(true)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }else{
+    setTimeout(function() {
+      document.getElementById("invalidEmail").style.display = "block";
+  });
+  setTimeout(function() {
+    document.getElementById("invalidEmail").style.display = "none";
+}, 1500)
+  }
 }
 
   return (
@@ -167,6 +177,7 @@ const handleSubscribe = () =>{
       <button className="p-3 bg-red text-white w-[200px] hover:bg-red/50 ease-in-out duration-150" onClick={handleSubscribe}>Subscribe</button>
       </div> </>}
      
+     <p style={{"display": "none"}} className="text-red  mt-1 tracking-widest" id="invalidEmail"> Invalid Email !</p>
       
             </div>
         </div>
