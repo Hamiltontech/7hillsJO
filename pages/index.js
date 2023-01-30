@@ -32,6 +32,9 @@ export default function Home() {
   const [searchPage, setSearchPage] = useState(false);
   const [search, setSearch] = useState("");
   const [popup, setPopup] = useState(false)
+  const [newsletter, setNewsletter] = useState(false)
+  const [email, setEmail] = useState("")
+  const [subscription, setSubscription] = useState(false)
 
   useEffect(() => {
     axios
@@ -67,8 +70,19 @@ export default function Home() {
      document.getElementById('popup').style.display = 'none';
 }
 
-const handleClick =()=>{
-  console.log("popuyp")
+
+
+const handleSubscribe = () =>{
+  axios.post("https://strapi-104357-0.cloudclusters.net/api/subscriptions", {
+    "data":{
+      "Email" : email.toString() || "",
+    }
+  }).then((response)=>{
+    console.log(response)
+    setSubscription(true)
+  }).catch((error)=>{
+    console.log(error)
+  })
 }
 
   return (
@@ -82,6 +96,8 @@ const handleClick =()=>{
         setSearchPage={setSearchPage}
         search={search}
         setSearch={setSearch}
+        newsletter={newsletter} 
+        setNewsletter={setNewsletter}
       />
 
       <div id="popup" className="md:hidden bg-red p-2 fixed flex justify-center left-[10%] top-[90%] rounded-full border border-white text-white">
@@ -125,6 +141,41 @@ const handleClick =()=>{
     </div>
 </div>
 }
+
+
+{newsletter && 
+<div id="defaultModal" tabindex="-1" aria-hidden="true" class=" shadow-xl shadow-blackk fixed pt-[120px] justify-center z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[800px] grid place-items-center">
+    <div class="relative w-full max-w-2xl md:h-auto shadow-xl shadow-blackk">
+        <div class="relative bg-white  shadow dark:bg-gray-700 shadow-xl shadow-blackk pb-10">
+                  <div class="flex items-start justify-between p-4 rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Terms of Service
+                </h3>
+                <button onClick={()=>{setNewsletter(false); setSubscription(false)}} type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <div className="p-6 space-y-2 lg:w-[600px] grid place-items-center">
+              <Image src={subscription? `https://cdn-icons-png.flaticon.com/512/709/709510.png` : `https://cdn-icons-png.flaticon.com/512/542/542689.png` } width={100} height={100} className={subscription?'animate-pulse' :`animate-bounce `}/>
+     {subscription? <h1 className="text-4xl font-extrabold">Thank You!</h1> : <><h1 className="text-2xl font-extrabold">Subscribe to our newsletter !</h1>
+      <p>Be the first to get exclusive offers & the latest news directly to your inbox.</p>
+      <br ></br>
+  
+      <div className="flex">
+        <input className="w-full p-2 outline-0 border-t border-l border-b text-lg" type="email" placeholder="Enter your email.." onChange={(e)=>setEmail(e.target.value)}/>
+      <button className="p-3 bg-red text-white w-[200px] hover:bg-red/50 ease-in-out duration-150" onClick={handleSubscribe}>Subscribe</button>
+      </div> </>}
+     
+      
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+
 
       {searchPage ? (
         <>

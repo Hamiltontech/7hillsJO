@@ -10,7 +10,7 @@ const Trending = ({ data }) => {
   const ar = arr?.slice(Math.max(arr?.length - 5, 1))
 
 
-console.log(ar)
+console.log(arr)
 
   return (
     <div className="font-blinker">
@@ -47,7 +47,7 @@ console.log(ar)
         <Top data={data} />
       ) : (
         <div className=" mt-5 lg:gap-1  grid lg:grid-cols-5">
-          {ar?.map((item, key) => {
+          {arr?.map((item, key) => {
             return (
               <>
                 <Link href={"/post/" + item?.attributes?.Slug}>

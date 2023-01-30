@@ -26,11 +26,11 @@ const TopPostssBar = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-blackk lg:text-2xl font-bold -mt-5 ml-5 bg-white lg:w-[140px] w-[100px] text-center flex ">
+      <h1 className="text-blackk lg:text-2xl font-bold -mt-5 ml-5 bg-white lg:w-[150px] w-[100px] text-center flex ">
         <span className="hidden lg:flex">
           <GiElectric size={30} />
         </span>
-        Top Posts
+        Top Stories
       </h1>
       <div className="w-full h-full p-2">
         <div className="grid gap-2">

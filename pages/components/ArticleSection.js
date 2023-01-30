@@ -4,6 +4,7 @@ import Comment from "../components/Comment";
 import axios from "axios";
 import ArticleReactions from "./ArticleReactions";
 import ReactMarkdown from "react-markdown";
+import parse from "html-react-parser";
 
 
 const ArticleSection = ({ data, comment, setComment, postID }) => {
@@ -52,6 +53,7 @@ useEffect(()=>{
 }, [commented])
 
 
+
   return (
     <div className="font-blinker">
       {/* category and date */}
@@ -84,16 +86,16 @@ useEffect(()=>{
       {/* content */}
       <div className="py-2 lg:py-5">
         <p className="lg:max-w-[1400px] text-justify text-sm lg:text-lg max-w-[300px]">
-        <div>
-          <ReactMarkdown  escapeHtml={false} >
-            {data?.attributes?.Body}
-          </ReactMarkdown>
+        <div id="demo">
+          <ReactMarkdown  escapeHtml={true} children={data?.attributes?.Body} />
+       
+
       </div>   
         </p>
       </div>
       <hr className="text-[#c0c0c0]" />
 
-{/* author */}
+{/* author */} 
 
       {/* <Comment /> */}
       <div className="w-full flex justify-center ">

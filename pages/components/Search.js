@@ -44,9 +44,7 @@ const Search = ({ search, data , setSearchPage}) => {
 
   return (
     <>    
-     <div id="mydiv" style={{"display": "none"}} className="h-screen bg-red w-full flex justify-center relative">
-    <h1 className="text-center lg:text-7xl text-white font-extrabold flex justify-center lg:pt-[500px]">Copied!</h1>
-      </div>
+
 
     <div className="pt-[120px] font-blinker">
 <div className="mx-10" onClick={()=>setSearchPage(false)}>
@@ -62,6 +60,7 @@ const Search = ({ search, data , setSearchPage}) => {
               if (item?.attributes?.Title.toLowerCase().includes(search.toLowerCase())) {
                 return (
                   <>
+                   <Link href={"/post/" + item?.attributes?.Slug}>
                       <div
                         key={key}
                         className="p-3 lg:mx-20 mt-2 hover:bg-blackk/10 cursor-pointer ease-in-out duration-150"
@@ -86,7 +85,7 @@ const Search = ({ search, data , setSearchPage}) => {
                           </p>
                         </div>
                       </div>
-
+                      </Link>
                   </>
                 );
               }
@@ -139,6 +138,7 @@ const Search = ({ search, data , setSearchPage}) => {
 
         {/* Hot Deals Search */}
         <div className="lg:w-[33.3%] ">
+       
           <h1 className="text-3xl font-bold lg:mx-10">Hot Deals</h1>
           <hr className="mx-2 text-blackk/20 mt-2"/>
           <div className="grid mt-5">
@@ -180,7 +180,9 @@ const Search = ({ search, data , setSearchPage}) => {
               }
             })}
           </div>
-         
+          <div id="mydiv" style={{"display": "none"}} className="  flex justify-center relative">
+    <h1 className="text-center  font-extrabold flex justify-center ">Copied!</h1>
+      </div>
         </div>
    
       </div>
