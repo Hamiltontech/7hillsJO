@@ -191,7 +191,7 @@ export default function Home() {
             id="defaultModal"
             tabindex="-1"
             aria-hidden="true"
-            class=" shadow-xl shadow-blackk fixed pt-[120px] justify-center z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[800px] grid place-items-center"
+            class=" fixed pt-[120px] justify-center z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[800px] grid place-items-center"
           >
             <div class="relative w-full max-w-2xl md:h-auto shadow-xl shadow-blackk">
               <div class="relative bg-white  shadow dark:bg-gray-700 shadow-xl shadow-blackk pb-10">

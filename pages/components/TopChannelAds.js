@@ -23,7 +23,7 @@ const TopChannelAds = () => {
       <p className="text-xs font-extralight tracking-widest my-1 text-white/50">
         ADVERTISEMENT
       </p>
-      <div className="lg:w-[728px] lg:h-[90px] w-[310px] h-[100px] bg-white/10 ">
+      <div className="lg:w-[728px] lg:h-[90px] w-[310px] h-[100px] ">
         {ad?.map((item) => {
           if (item?.attributes?.Position === "Bottom-Home") {
             return (
