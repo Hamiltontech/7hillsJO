@@ -67,7 +67,17 @@ export default function Home() {
 
   function closePopup() {
     document.getElementById("popup").style.display = "none";
+
   }
+
+
+useEffect(()=>{
+if (localStorage.getItem("newsletter")){
+  setNewsletter(false)
+}else{
+  setNewsletter(true)
+}
+}, [newsletter])
 
   const re = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
@@ -106,8 +116,6 @@ export default function Home() {
           setSearchPage={setSearchPage}
           search={search}
           setSearch={setSearch}
-          newsletter={newsletter}
-          setNewsletter={setNewsletter}
         />
 
         <div
@@ -150,9 +158,7 @@ export default function Home() {
             <div class="relative w-full max-w-2xl md:h-auto">
               <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Terms of Service
-                  </h3>
+                  
                   <button
                     onClick={() => setPopup(false)}
                     type="button"
@@ -194,15 +200,14 @@ export default function Home() {
             class=" fixed pt-[120px] justify-center z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[800px] grid place-items-center"
           >
             <div class="relative w-full max-w-2xl md:h-auto shadow-xl shadow-blackk">
-              <div class="relative bg-white  shadow dark:bg-gray-700 shadow-xl shadow-blackk pb-10">
+              <div class="relative bg-white dark:bg-gray-700 shadow-xl shadow-blackk pb-10">
                 <div class="flex items-start justify-between p-4 rounded-t dark:border-gray-600">
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Terms of Service
-                  </h3>
+                  
                   <button
                     onClick={() => {
                       setNewsletter(false);
                       setSubscription(false);
+                      localStorage.setItem('newsletter', true)
                     }}
                     type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"

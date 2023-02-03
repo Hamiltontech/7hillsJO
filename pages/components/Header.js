@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 import Search from "./Search";
 import {HiNewspaper} from 'react-icons/hi'
 
-const Header = ({ searchPage, setSearchPage, search, setSearch, newsletter, setNewsletter }) => {
+const Header = ({ searchPage, setSearchPage, search, setSearch}) => {
   // for showing the menu on mobile view
   const [menu, setMenu] = useState(false);
   // for rendering the categories component
@@ -51,17 +51,6 @@ const Header = ({ searchPage, setSearchPage, search, setSearch, newsletter, setN
               </button>
               {/* <span className="mr-2"></span> */}
             </div>
-
-            
-{/* newsletter */}
-            <div className="  text-xl font-extrabold text-white duration-150 ease-in-out flex hover:text-yellow">
-            <HiNewspaper className="mx-1 mt-1" />
-            <button onClick={()=>setNewsletter(true)}>
-              <li className="lg:mr-2 mb-10 uppercase list-none">Newsletter</li>
-            </button>
-          </div>
-
-
 
             {/* channel */}
             {/* <div className=" hidden text-xl font-extrabold text-white duration-150 ease-in-out lg:flex  hover:text-yellow">
