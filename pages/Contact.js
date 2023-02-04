@@ -128,7 +128,7 @@ const Contact = () => {
             </div>
 
             {/* right */}
-            <div className="w-full h-full col-span-3 lg:p-20 ">
+            <div className="w-full h-screen col-span-3 lg:p-20 ">
               <div className="p-4">
                 {thanks ? (
                   <div className=" text-center w-full h-full mt-60">

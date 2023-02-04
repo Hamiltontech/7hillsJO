@@ -89,7 +89,7 @@ const Footer = () => {
                   <Link href="/Events">Events</Link>
                 </li>
                 <li className="hover:text-yellow">
-                  <Link href="/Movies">TV & Music</Link>
+                  <Link href="/Music">TV & Music</Link>
                 </li>
                 <li className="hover:text-yellow">
                   <Link href="/Travel">Travel</Link>
@@ -101,7 +101,7 @@ const Footer = () => {
                   <Link href="/Shopping">Shopping & Fashion</Link>
                 </li>
                 <li className="hover:text-yellow">
-                  <Link href="/Wellbeing">Wellness</Link>
+                  <Link href="/Wellness">Wellness</Link>
                 </li>
                 <li className="hover:text-yellow">
                   <Link href="/Technology">Technology</Link>
