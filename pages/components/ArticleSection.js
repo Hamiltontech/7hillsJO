@@ -5,7 +5,7 @@ import axios from "axios";
 import ArticleReactions from "./ArticleReactions";
 import ReactMarkdown from "react-markdown";
 import parse from "html-react-parser";
-
+// import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const ArticleSection = ({ data, comment, setComment, postID }) => {
 // reactions
@@ -87,9 +87,12 @@ useEffect(()=>{
       <div className="py-2 lg:py-5">
         <p className="lg:max-w-[1400px] text-justify text-sm lg:text-lg max-w-[300px]">
         <div id="demo">
-          <ReactMarkdown  escapeHtml={true}  >
+          <ReactMarkdown className="markdown" escapeHtml={true}  >
           {data?.attributes?.Body}
+          
             </ReactMarkdown>
+
+         
 
       </div>   
         </p>
