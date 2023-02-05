@@ -21,6 +21,7 @@ const Post = () => {
   const [searchPage, setSearchPage] = useState(false);
   const [search, setSearch] = useState("");
   
+  console.log(data?.attributes?.Body)
   // from strapi
   useEffect(() => {
     axios
@@ -83,7 +84,7 @@ useEffect(()=>{
 
               <div className="w-full my-5 grid justify-center ">
                 {/* <div className="w-[300px] h-[600px] bg-cover bg-[url('https://images.unsplash.com/photo-1617419250411-98aa962b070f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&w=1240')]" /> */}
-             <ArticleAd data={data}/>
+             <ArticleAd  data={data}/>
               </div>
             </div>
           </div>

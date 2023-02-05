@@ -89,11 +89,7 @@ useEffect(()=>{
         <div id="demo">
           <ReactMarkdown className="markdown" escapeHtml={true}  >
           {data?.attributes?.Body}
-          
             </ReactMarkdown>
-
-         
-
       </div>   
         </p>
       </div>
