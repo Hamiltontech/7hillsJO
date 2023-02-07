@@ -324,7 +324,7 @@ if (localStorage.getItem("newsletter")){
                 {/* <TopChannel /> */}
 
                 {/* Latest articles section */}
-                <div id="latest">
+                <div id="latest" className="mb-10">
                   <LatestArticles data={data} />
                 </div>
                 {/* add section */}

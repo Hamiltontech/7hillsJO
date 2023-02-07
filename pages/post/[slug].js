@@ -92,7 +92,7 @@ useEffect(()=>{
           <RelatedArticlesBar />
           <Footer />
         </div>
-        {/* <Footer /> */}
+       
       </div>
       </>
       )}

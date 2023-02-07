@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useState } from "react";
+import {TfiArrowCircleDown} from 'react-icons/tfi'
 
 const TopChannel = ({ data }) => {
   const [ postNum, setPostNum] = useState(4);
@@ -55,7 +56,7 @@ const TopChannel = ({ data }) => {
 
       </div>
       <div className="w-full h-full flex justify-center mt-10 lg:-mt-5">
-      <button onClick={handleClick} className="hover:underline hover:text-yellow x ease-in-out duration-150">Load More</button></div>
+      <button  onClick={handleClick} className="hover:underline hover:text-yellow x ease-in-out duration-150"><TfiArrowCircleDown size={30} className="hover:text-yellow"/></button></div>
     </div>
   );
 };
