@@ -24,7 +24,9 @@ a {
     background: black;
   }
 } */
-
+.YourHighlightClass{
+  font-weight: bold;
+}
 
 .markdown h1{
   font-size: 40px;

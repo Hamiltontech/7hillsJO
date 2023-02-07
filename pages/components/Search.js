@@ -5,6 +5,8 @@ import Link from "next/link";
 import Footer from "./Footer";
 import {IoChevronBackCircleSharp} from 'react-icons/io5'
 
+import Highlighter from "react-highlight-words";
+
 const Search = ({ search, data , setSearchPage}) => {
     const [ deals, setDeals ] = useState([])
     const [ quizzes, setQuizzes ] = useState([])
@@ -78,11 +80,15 @@ const Search = ({ search, data , setSearchPage}) => {
                           ></div>
                         </div>
                         <div className=" mt-2 ">
-                          <h1 className="font-bold " id="text">
-                           {item?.attributes?.Title}
-                            <br></br>
-                            <span className="text-sm font-medium text-justify "></span>
-                          </h1>
+
+                        <Highlighter 
+                        class="YourHighlightClass"
+                        searchWords={[search]}
+                        autoEscape={true}
+                        textToHighlight= {item?.attributes?.Title}
+                        />
+
+                          
                           <p className=" text-sm">
                             {item?.attributes?.Abstract}
                             <span className="font-light ml-2"></span>
@@ -127,11 +133,14 @@ const Search = ({ search, data , setSearchPage}) => {
                           ></div>
                         </div>
                         <div className=" mt-2 ">
-                          <h1 className="font-bold ">
-                            {item?.attributes?.Name}
-                            <br></br>
-                            <span className="text-sm font-medium text-justify "></span>
-                          </h1>
+                        <Highlighter 
+                        class="YourHighlightClass"
+                        searchWords={[search]}
+                        autoEscape={true}
+                        textToHighlight=  {item?.attributes?.Name}
+                        />
+
+                         
                           <p className=" text-sm grid">
                             {item?.attributes?.Description}
                             <span className="font-bold "></span>
@@ -172,11 +181,15 @@ const Search = ({ search, data , setSearchPage}) => {
 
                         </div>
                         <div className=" mt-2 ">
-                          <h1 className="font-bold ">
-                            {item?.attributes?.Brand}
-                            <br></br>
-                            <span className="text-sm font-medium text-justify "></span>
-                          </h1>
+
+                        <Highlighter 
+                        class="YourHighlightClass"
+                        searchWords={[search]}
+                        autoEscape={true}
+                        textToHighlight={item?.attributes?.Brand}
+                        />
+
+                         
                           <p className=" text-sm grid">
                             {item?.attributes?.Decsription}
                             
