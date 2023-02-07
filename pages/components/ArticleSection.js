@@ -28,6 +28,16 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
   const [name, setName] = useState("")
   const [commented, setCommented] = useState(false)
 
+
+  const handlePosted = ()=>{
+    setTimeout(function() {
+      document.getElementById("posted").style.display = 'block';
+    })
+    setTimeout(function() {
+      document.getElementById("posted").style.display = 'none';
+    }, 2000)
+  }
+
   const handleSubmit = () => {
     axios.post("https://strapi-104357-0.cloudclusters.net/api/comments", {
       "data": {
@@ -38,6 +48,8 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
     }).then((res) => {
       console.log(res)
       setCommented(!commented)
+      handlePosted()
+      
       // window.location.reload()
     }).catch((error) => {
       console.log(error)
@@ -128,12 +140,14 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
           </div>
 
           <div class="flex justify-between mx-3">
-            <div>
+            <div className="flex ">
               <button
                 onClick={handleSubmit}
                 class=" relative px-4 py-1 bg-gray-800 text-white rounded font-light hover:bg-gray-700 bg-red hover:bg-red/80 ease-in-out duration-150"
               >Submit
               </button>
+              <h1 style={{'display': 'none'}} className="text-sm m-2" id="posted">Comment Posted!</h1>
+              
             </div>
           </div>
 
@@ -145,24 +159,29 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
               {
                 comments?.map((item) => {
                   if (item?.attributes?.post_id === postID.toString()) {
-                    const time = parseInt(item?.attributes?.createdAt.slice(12, 13)) + 3
+                    const time = parseInt(item?.attributes?.createdAt.slice(12, 13)) +1
                     return (
                       <>
                         <div className="lg:flex justify-between lg:mx-10 py-5">
                           <div className="flex"><h1 className="font-bold mt-2 text-light">{item?.attributes?.name} </h1>
                             <h1 className="my-2 mx-2">{item?.attributes?.comment}</h1></div>
-                          <h1 className="my-2 text-xs"><span className="text-xs"><span className="mr-1">Posted at</span>
+                          <h1 className="my-2 text-xs"><span className="text-xs"><span className="">Posted on</span>
 
-                            {time}
-                            {item?.attributes?.createdAt.slice(13, 16)}
+                            
                           </span>
 
                             {/* {item?.attributes?.createdAt.slice(0,10)} */}
                             <span className="mx-1">
-                              {item?.attributes?.createdAt.slice(8, 10)}
+                            {item?.attributes?.createdAt.slice(0, 4)}
                               {item?.attributes?.createdAt.slice(4, 8)}
-                              {item?.attributes?.createdAt.slice(0, 4)}
+                              {item?.attributes?.createdAt.slice(8, 10)}
+                             
                             </span>
+                            at <span>
+                            {time}
+                            {item?.attributes?.createdAt.slice(13, 16)}
+                            </span>
+                            
                           </h1>
                         </div>
                         <hr className="text-blackk/10" />

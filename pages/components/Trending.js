@@ -86,9 +86,9 @@ console.log(arr)
                      
                       <p className="px-1 text-sm lg:text-sm">{item?.attributes?.Abstract}</p>
                       <h1 className="p-1 text-xs  uppercase bg-blackk text-yellow">
-                      {item?.attributes?.createdAt.slice(8,10)}
-                       {item?.attributes?.createdAt.slice(4,8)}
                        {item?.attributes?.createdAt.slice(0,4)}
+                       {item?.attributes?.createdAt.slice(4,8)}
+                      {item?.attributes?.createdAt.slice(8,10)}
                       </h1>
                     </div>
                   </div>

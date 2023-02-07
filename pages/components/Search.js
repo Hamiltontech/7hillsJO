@@ -51,6 +51,9 @@ const Search = ({ search, data , setSearchPage}) => {
 <IoChevronBackCircleSharp size={40} className="hover:text-red ease-in-out duration-150 hover:scale-105 cursor-pointer"/>
 </div>
       <div className=" lg:flex justify-between pt-10 h-screen">
+
+
+
         {/* Articles search */}
         <div className="lg:w-[33.3%] lg:mx-10  ">
           <h1 className="text-3xl font-bold mx-2">Articles</h1>
@@ -58,6 +61,7 @@ const Search = ({ search, data , setSearchPage}) => {
           <div className="grid mt-5">
             {articles?.map((item, key) => {
               if (item?.attributes?.Title.toLowerCase().includes(search.toLowerCase())) {
+
                 return (
                   <>
                    <Link href={"/post/" + item?.attributes?.Slug}>
@@ -74,8 +78,8 @@ const Search = ({ search, data , setSearchPage}) => {
                           ></div>
                         </div>
                         <div className=" mt-2 ">
-                          <h1 className="font-bold ">
-                            {item?.attributes?.Title}
+                          <h1 className="font-bold " id="text">
+                           {item?.attributes?.Title}
                             <br></br>
                             <span className="text-sm font-medium text-justify "></span>
                           </h1>
@@ -88,8 +92,14 @@ const Search = ({ search, data , setSearchPage}) => {
                       </Link>
                   </>
                 );
+                
               }
-            })}
+              
+              
+             
+            })
+            
+            }
           </div>
         </div>
 
