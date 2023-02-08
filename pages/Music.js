@@ -59,7 +59,7 @@ const Movies = () => {
     </div>
 
     
-      <div className="w-full h-full">
+      <div className="w-full h-screen">
       <h1 className="p-10 pb-1 text-3xl font-bold uppercase lg:text-5xl">
         Latest Articles
       </h1>
@@ -95,8 +95,8 @@ const Movies = () => {
           ))}
         </div>
         
-      </div>
         <Footer />
+      </div>
    </>)}
     </div>
     </Layout>

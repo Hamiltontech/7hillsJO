@@ -78,7 +78,7 @@ useEffect(()=>{
             </div>
 
             <div className="lg:grid w-[25%] h-[50%] mx-3 hidden">
-              <div className="border-4 bg-white ">
+              <div className=" bg-white ">
                 <TopPostssBar />
               </div>
 

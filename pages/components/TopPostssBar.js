@@ -25,7 +25,7 @@ const TopPostssBar = () => {
  
 
   return (
-    <div className="w-full">
+    <div className="w-full border border-4">
       <h1 className="text-blackk lg:text-2xl font-bold -mt-5 ml-5 bg-white lg:w-[150px] w-[100px] text-center flex ">
         <span className="hidden lg:flex">
           <GiElectric size={30} />

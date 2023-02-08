@@ -57,7 +57,7 @@ const Search = ({ search, data , setSearchPage}) => {
 
 
         {/* Articles search */}
-        <div className="lg:w-[33.3%] lg:mx-10  ">
+        <div className="lg:w-[33.3%] lg:mx-10 ">
           <h1 className="text-3xl font-bold mx-2">Articles</h1>
 <hr className="mx-2 text-blackk/20 mt-2"/>
           <div className="grid mt-5">
@@ -66,7 +66,7 @@ const Search = ({ search, data , setSearchPage}) => {
 
                 return (
                   <>
-                   <Link href={"/post/" + item?.attributes?.Slug}>
+                   <Link href={"/post/" + item?.attributes?.Slug} onClick={()=>setSearchPage(false)}>
                       <div
                         key={key}
                         className="p-3 lg:mx-20 mt-2 hover:bg-blackk/10 cursor-pointer ease-in-out duration-150"
