@@ -47,7 +47,7 @@ console.log(arr)
         <Top data={data} />
       ) : (
         <div className=" mt-5 lg:gap-1  grid lg:grid-cols-5">
-          {arr?.map((item, key) => {
+          {ar?.map((item, key) => {
             return (
               <>
                 <Link href={"/post/" + item?.attributes?.Slug}>
