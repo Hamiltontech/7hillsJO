@@ -104,7 +104,7 @@ const ArticleSection = ({ data, comment, setComment, postID }) => {
             </ReactMarkdown>
 
           {/* {parse(data?.attributes?.Instagram_embed || "")} */}
-          {parse(`${data?.attributes?.Instagram_embed}`)}
+          {/* {parse(`${data?.attributes?.Instagram_embed}`)} */}
 
           </div>
         </p>

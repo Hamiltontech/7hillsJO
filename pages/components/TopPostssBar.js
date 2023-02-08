@@ -37,7 +37,7 @@ const TopPostssBar = () => {
           {ar?.map((item, key) => (
             <>
             <Link href={item?.attributes?.Slug} >
-      <div key={key} className="duration-200 ease-in-out  lg:flex  
+      <div key={key} className="duration-200 ease-in-out lg:flex  
        hover:bg-light/10 ">
         <div >
       <div className="bg-cover lg:w-[150px] h-[150px]" style={{"backgroundImage": `url("${item?.attributes?.Cover}")`}}></div>

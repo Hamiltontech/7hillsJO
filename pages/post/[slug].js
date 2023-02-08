@@ -77,8 +77,8 @@ useEffect(()=>{
               <ArticleSection data={data} comment={comment} setComment={setComment} postID={postID}/>
             </div>
 
-            <div className="lg:grid w-[25%] h-[70%] mx-3 hidden">
-              <div className="border-4 lg:h-[100%] bg-white h-[750px]">
+            <div className="lg:grid w-[25%] h-[50%] mx-3 hidden">
+              <div className="border-4 bg-white ">
                 <TopPostssBar />
               </div>
 
