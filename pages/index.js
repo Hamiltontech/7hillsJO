@@ -109,7 +109,7 @@ if (localStorage.getItem("newsletter")){
   return (
     <Layout>
       <div className="font-blinker">
-        <title>7HillsJO</title>
+        <title>7hillsjo</title>
         <link rel="apple-touch-icon" href="https://i.imgur.com/waprZ5a.png" />
         <Header
           searchPage={searchPage}
