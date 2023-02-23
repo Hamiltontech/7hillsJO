@@ -90,13 +90,13 @@ const Header = ({ searchPage, setSearchPage, search, setSearch}) => {
             </div>
 
             {/* quizzes */}
-            <div className="flex duration-150 ease-in-out hover:text-yellow">
+            {/* <div className="flex duration-150 ease-in-out hover:text-yellow">
               <RiQuestionFill className="mt-1 mr-1" />
               <Link href="/Quizzes">
                 <li className="mr-3 uppercase ">Quizzes </li>
               </Link>
               <span className="mr-2">|</span>
-            </div>
+            </div> */}
 
             {/* hot deals */}
             <div className="flex duration-150 ease-in-out hover:text-yellow">

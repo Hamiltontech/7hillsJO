@@ -129,9 +129,9 @@ const Menu = ({ setMenu, setSearchPage }) => {
         </Link> */}
 
         {/* quizzes */}
-        <Link href="/Quizzes" onClick={()=>{setSearchPage(false); setMenu(false)}}>
+        {/* <Link href="/Quizzes" onClick={()=>{setSearchPage(false); setMenu(false)}}>
           <h1 className="p-3 cursor-pointer hover:text-yellow">Quizzes</h1>
-        </Link>
+        </Link> */}
 
         {/* discounts */}
         <Link href="/Discounts" onClick={()=>{setSearchPage(false); setMenu(false)}}>
